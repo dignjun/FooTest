@@ -1,0 +1,61 @@
+server:
+  port: 80
+  max-http-header-size: 10240
+
+guns:
+  swagger-open: true
+  kaptcha-open: flase
+  spring-session-open: false
+  session-invalidate-time: 1800
+  session-validation-interval: 900
+
+beetl:
+  resource-auto-check: true
+
+spring:
+  profiles:
+    active: @spring.active@
+  mvc:
+    view:
+      prefix: /pages
+  devtools:
+    restart:
+      enabled: false
+      additional-paths: src/main/java
+      exclude: assets/**,pages/**
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+mybatis-plus:
+  typeAliasesPackage: com.example.guns.modular.system.model
+
+log:
+  path: guns-logs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
