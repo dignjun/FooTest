@@ -1,5 +1,11 @@
 package com.example.tool.exceptions;
 
+import com.example.tool.collection.CollectionUtil;
+import com.example.tool.io.FastByteArrayOutputStream;
+import com.example.tool.util.ArrayUtil;
+import com.example.tool.util.ReflectUtil;
+import com.example.tool.util.StrUtil;
+
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.UndeclaredThrowableException;

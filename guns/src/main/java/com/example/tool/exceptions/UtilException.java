@@ -1,5 +1,7 @@
 package com.example.tool.exceptions;
 
+import com.example.tool.util.StrUtil;
+
 /**
  * 工具异常类
  */
