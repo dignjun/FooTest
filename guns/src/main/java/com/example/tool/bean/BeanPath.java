@@ -1,6 +1,12 @@
 package com.example.tool.bean;
 
+import com.example.tool.collection.CollUtil;
+import com.example.tool.convert.Convert;
+import com.example.tool.map.MapUtil;
+import com.example.tool.text.StrBuilder;
+import com.example.tool.util.ArrayUtil;
 import com.example.tool.util.CharUtil;
+import com.example.tool.util.StrUtil;
 
 import java.util.*;
 

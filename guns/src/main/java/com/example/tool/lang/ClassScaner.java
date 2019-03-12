@@ -1,6 +1,11 @@
 package com.example.tool.lang;
 
-import com.example.tool.util.StrUtil;
+import com.example.tool.collection.CollUtil;
+import com.example.tool.collection.EnumerationIter;
+import com.example.tool.io.FileUtil;
+import com.example.tool.io.IORuntimeException;
+import com.example.tool.io.resource.ResourceUtil;
+import com.example.tool.util.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -262,7 +267,7 @@ public class ClassScaner {
     /**
      * 通过过滤器，是否满足接受此类的条件
      *
-     * @param clazz 类
+     * @param className 类
      * @return 是否接受
      */
     private void addIfAccept(String className) {

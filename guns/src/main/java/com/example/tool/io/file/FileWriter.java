@@ -5,6 +5,7 @@ import com.example.tool.io.IORuntimeException;
 import com.example.tool.io.IoUtil;
 import com.example.tool.lang.Assert;
 import com.example.tool.util.StrUtil;
+import com.example.tool.util.CharsetUtil;
 
 import java.io.*;
 import java.nio.charset.Charset;

@@ -5,6 +5,7 @@ import com.example.tool.io.IORuntimeException;
 import com.example.tool.io.IoUtil;
 import com.example.tool.util.CharsetUtil;
 import com.example.tool.util.ObjectUtil;
+import com.example.tool.util.URLUtil;
 
 import java.io.BufferedReader;
 import java.io.File;

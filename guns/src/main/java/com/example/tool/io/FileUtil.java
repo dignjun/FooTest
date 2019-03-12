@@ -1,5 +1,14 @@
 package com.example.tool.io;
 
+import com.example.tool.collection.CollUtil;
+import com.example.tool.io.file.FileCopier;
+import com.example.tool.io.file.FileReader;
+import com.example.tool.io.file.FileWriter;
+import com.example.tool.io.file.LineSeparator;
+import com.example.tool.io.resource.ResourceUtil;
+import com.example.tool.lang.Assert;
+import com.example.tool.util.*;
+
 import java.io.*;
 import java.net.URI;
 import java.net.URL;
@@ -2306,7 +2315,7 @@ public class FileUtil {
      * @deprecated 使用FileUtil#load(String, String, ReaderHandler) 代替
      */
     @Deprecated
-    public static <T> T load(ReaderHandler<T> readerHandler, String path, String charset) throws IORuntimeException {
+    public static <T> T load(FileReader.ReaderHandler<T> readerHandler, String path, String charset) throws IORuntimeException {
         return FileReader.create(file(path), CharsetUtil.charset(charset)).read(readerHandler);
     }
 
@@ -2320,7 +2329,7 @@ public class FileUtil {
      * @throws IORuntimeException IO异常
      * @since 3.1.1
      */
-    public static <T> T loadUtf8(String path, ReaderHandler<T> readerHandler) throws IORuntimeException {
+    public static <T> T loadUtf8(String path, com.example.tool.io.file.FileReader.ReaderHandler<T> readerHandler) throws IORuntimeException {
         return load(path, CharsetUtil.CHARSET_UTF_8, readerHandler);
     }
 
@@ -2335,7 +2344,7 @@ public class FileUtil {
      * @throws IORuntimeException IO异常
      * @since 3.1.1
      */
-    public static <T> T load(String path, String charset, ReaderHandler<T> readerHandler) throws IORuntimeException {
+    public static <T> T load(String path, String charset, com.example.tool.io.file.FileReader.ReaderHandler<T> readerHandler) throws IORuntimeException {
         return FileReader.create(file(path), CharsetUtil.charset(charset)).read(readerHandler);
     }
 
@@ -2350,7 +2359,7 @@ public class FileUtil {
      * @throws IORuntimeException IO异常
      * @since 3.1.1
      */
-    public static <T> T load(String path, Charset charset, ReaderHandler<T> readerHandler) throws IORuntimeException {
+    public static <T> T load(String path, Charset charset, com.example.tool.io.file.FileReader.ReaderHandler<T> readerHandler) throws IORuntimeException {
         return FileReader.create(file(path), charset).read(readerHandler);
     }
 
@@ -2364,7 +2373,7 @@ public class FileUtil {
      * @throws IORuntimeException IO异常
      * @since 3.1.1
      */
-    public static <T> T loadUtf8(File file, ReaderHandler<T> readerHandler) throws IORuntimeException {
+    public static <T> T loadUtf8(File file, com.example.tool.io.file.FileReader.ReaderHandler<T> readerHandler) throws IORuntimeException {
         return load(file, CharsetUtil.CHARSET_UTF_8, readerHandler);
     }
 
@@ -2379,7 +2388,7 @@ public class FileUtil {
      * @throws IORuntimeException IO异常
      * @since 3.1.1
      */
-    public static <T> T load(File file, Charset charset, ReaderHandler<T> readerHandler) throws IORuntimeException {
+    public static <T> T load(File file, Charset charset, FileReader.ReaderHandler<T> readerHandler) throws IORuntimeException {
         return FileReader.create(file, charset).read(readerHandler);
     }
 

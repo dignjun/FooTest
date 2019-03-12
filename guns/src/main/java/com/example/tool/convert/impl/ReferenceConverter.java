@@ -3,6 +3,7 @@ package com.example.tool.convert.impl;
 import com.example.tool.convert.AbstractConverter;
 import com.example.tool.convert.ConverterRegistry;
 import com.example.tool.util.StrUtil;
+import com.example.tool.util.TypeUtil;
 
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;

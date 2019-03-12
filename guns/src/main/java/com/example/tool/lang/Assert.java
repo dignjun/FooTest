@@ -1,5 +1,6 @@
 package com.example.tool.lang;
 
+import com.example.tool.collection.CollectionUtil;
 import com.example.tool.util.ArrayUtil;
 import com.example.tool.util.StrUtil;
 

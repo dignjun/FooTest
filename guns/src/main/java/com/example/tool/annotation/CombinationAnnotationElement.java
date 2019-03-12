@@ -1,5 +1,7 @@
 package com.example.tool.annotation;
 
+import com.example.tool.collection.CollUtil;
+
 import java.lang.annotation.*;
 import java.lang.reflect.AnnotatedElement;
 import java.util.Collection;
@@ -100,7 +102,7 @@ public class CombinationAnnotationElement implements AnnotatedElement {
     /**
      * 进行递归解析注解，直到全部都是元注解为止
      *
-     * @param element Class, Method, Field等
+     * @param annotations Class, Method, Field等
      */
     private void parse(Annotation[] annotations) {
         Class<? extends Annotation> annotationType;

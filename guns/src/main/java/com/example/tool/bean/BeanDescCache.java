@@ -1,5 +1,7 @@
 package com.example.tool.bean;
 
+import com.example.tool.lang.SimpleCache;
+
 /**
  * Bean属性缓存<br>
  * 缓存用于防止多次反射造成的性能问题

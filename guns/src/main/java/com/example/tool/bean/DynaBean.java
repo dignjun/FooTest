@@ -1,5 +1,10 @@
 package com.example.tool.bean;
 
+import com.example.tool.clone.CloneSupport;
+import com.example.tool.lang.Assert;
+import com.example.tool.util.ClassUtil;
+import com.example.tool.util.ReflectUtil;
+
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Map;

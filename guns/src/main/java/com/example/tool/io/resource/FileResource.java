@@ -2,6 +2,7 @@ package com.example.tool.io.resource;
 
 import com.example.tool.io.FileUtil;
 import com.example.tool.util.StrUtil;
+import com.example.tool.util.URLUtil;
 
 import java.io.File;
 

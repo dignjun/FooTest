@@ -1,5 +1,9 @@
 package com.example.tool.bean;
 
+import com.example.tool.lang.Assert;
+import com.example.tool.map.CaseInsensitiveMap;
+import com.example.tool.util.*;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;

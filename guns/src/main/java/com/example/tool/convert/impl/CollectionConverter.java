@@ -3,6 +3,7 @@ package com.example.tool.convert.impl;
 import com.example.tool.collection.CollUtil;
 import com.example.tool.collection.CollectionUtil;
 import com.example.tool.convert.Converter;
+import com.example.tool.util.TypeUtil;
 
 import java.lang.reflect.Type;
 import java.util.Collection;

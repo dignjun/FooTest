@@ -1,5 +1,11 @@
 package com.example.tool.bean.copier.provider;
 
+import com.example.tool.bean.BeanDesc;
+import com.example.tool.bean.BeanUtil;
+import com.example.tool.bean.copier.ValueProvider;
+import com.example.tool.exceptions.UtilException;
+import com.example.tool.util.StrUtil;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -10,7 +16,7 @@ import java.util.Map;
 public class BeanValueProvider implements ValueProvider<String> {
     private Object source;
     private boolean ignoreError;
-    final Map<String, PropDesc> sourcePdMap;
+    final Map<String, BeanDesc.PropDesc> sourcePdMap;
 
     /**
      * 构造
@@ -27,7 +33,7 @@ public class BeanValueProvider implements ValueProvider<String> {
 
     @Override
     public Object value(String key, Type valueType) {
-        PropDesc sourcePd = sourcePdMap.get(key);
+        BeanDesc.PropDesc sourcePd = sourcePdMap.get(key);
         if(null == sourcePd && (Boolean.class == valueType || boolean.class == valueType)) {
             //boolean类型字段字段名支持两种方式
             sourcePd = sourcePdMap.get(StrUtil.upperFirstAndAddPre(key, "is"));

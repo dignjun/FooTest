@@ -1,7 +1,10 @@
 package com.example.tool.lang;
 
+import com.example.tool.date.DateUtil;
 import com.example.tool.exceptions.ValidateException;
+import com.example.tool.util.NumberUtil;
 import com.example.tool.util.ObjectUtil;
+import com.example.tool.util.ReUtil;
 import com.example.tool.util.StrUtil;
 
 import java.net.MalformedURLException;
@@ -320,7 +323,7 @@ public class Validator {
      * @since 3.3.0
      */
     public static boolean isLetter(String value) {
-        return StrUtil.isAllCharMatch(value, new cn.hutool.core.lang.Matcher<Character>() {
+        return StrUtil.isAllCharMatch(value, new com.example.tool.lang.Matcher<Character>() {
             @Override
             public boolean match(Character t) {
                 return Character.isLetter(t);
@@ -350,7 +353,7 @@ public class Validator {
      * @since 3.3.0
      */
     public static boolean isUpperCase(String value) {
-        return StrUtil.isAllCharMatch(value, new cn.hutool.core.lang.Matcher<Character>() {
+        return StrUtil.isAllCharMatch(value, new com.example.tool.lang.Matcher<Character>() {
             @Override
             public boolean match(Character t) {
                 return Character.isUpperCase(t);
@@ -380,7 +383,7 @@ public class Validator {
      * @since 3.3.0
      */
     public static boolean isLowerCase(String value) {
-        return StrUtil.isAllCharMatch(value, new cn.hutool.core.lang.Matcher<Character>() {
+        return StrUtil.isAllCharMatch(value, new com.example.tool.lang.Matcher<Character>() {
             @Override
             public boolean match(Character t) {
                 return Character.isLowerCase(t);

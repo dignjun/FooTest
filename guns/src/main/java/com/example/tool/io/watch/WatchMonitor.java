@@ -5,6 +5,7 @@ import com.example.tool.io.IORuntimeException;
 import com.example.tool.io.IoUtil;
 import com.example.tool.util.ArrayUtil;
 import com.example.tool.util.StrUtil;
+import com.example.tool.util.URLUtil;
 
 import java.io.Closeable;
 import java.io.File;
@@ -322,7 +323,7 @@ public class WatchMonitor extends Thread implements Closeable {
 
     /**
      * 设置监听<br>
-     * 多个监听请使用{@link WatcherChain}
+     * 多个监听请使用{@link com.example.tool.io.watch.watchers.WatcherChain}
      *
      * @param watcher 监听
      * @return {@link WatchMonitor}

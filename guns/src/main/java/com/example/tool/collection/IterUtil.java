@@ -1,6 +1,8 @@
 package com.example.tool.collection;
 
+import com.example.tool.map.MapUtil;
 import com.example.tool.util.ArrayUtil;
+import com.example.tool.util.ReflectUtil;
 import com.example.tool.util.StrUtil;
 
 import java.util.*;

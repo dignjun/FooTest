@@ -1,7 +1,13 @@
 package com.example.tool.img;
 
+import com.example.tool.io.FileUtil;
+import com.example.tool.io.IORuntimeException;
+import com.example.tool.io.IoUtil;
 import com.example.tool.lang.Assert;
+import com.example.tool.util.ImageUtil;
+import com.example.tool.util.NumberUtil;
 import com.example.tool.util.ObjectUtil;
+import com.example.tool.util.StrUtil;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -529,7 +535,7 @@ public class Img {
     }
 
     /**
-     * 修正矩形框位置，如果{@link Img#setPositionFromCentre(boolean)} 设为{@code true}，则坐标修正为基于图形中心，否则基于左上角
+     * 修正矩形框位置，如果{@link Img#setPositionBaseCentre(boolean)} 设为{@code true}，则坐标修正为基于图形中心，否则基于左上角
      *
      * @param rectangle 矩形
      * @param baseWidth 参考宽

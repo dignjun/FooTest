@@ -1,5 +1,8 @@
 package com.example.tool.bean;
 
+import com.example.tool.exceptions.ExceptionUtil;
+import com.example.tool.util.StrUtil;
+
 /**
  * Bean异常
  */

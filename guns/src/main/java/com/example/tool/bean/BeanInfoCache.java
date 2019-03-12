@@ -1,5 +1,7 @@
 package com.example.tool.bean;
 
+import com.example.tool.lang.SimpleCache;
+
 import java.beans.PropertyDescriptor;
 import java.util.Map;
 

@@ -1,6 +1,18 @@
 package com.example.tool.bean;
 
+import com.example.tool.bean.copier.BeanCopier;
+import com.example.tool.bean.copier.CopyOptions;
+import com.example.tool.bean.copier.ValueProvider;
+import com.example.tool.collection.CollUtil;
+import com.example.tool.convert.Convert;
+import com.example.tool.lang.Editor;
+import com.example.tool.lang.Filter;
+import com.example.tool.map.CaseInsensitiveMap;
+import com.example.tool.map.MapUtil;
+import com.example.tool.util.ArrayUtil;
 import com.example.tool.util.ClassUtil;
+import com.example.tool.util.ReflectUtil;
+import com.example.tool.util.StrUtil;
 
 import java.beans.*;
 import java.lang.reflect.Field;
@@ -516,12 +528,12 @@ public class BeanUtil {
             return null;
         }
 
-        final Collection<PropDesc> props = BeanUtil.getBeanDesc(bean.getClass()).getProps();
+        final Collection<BeanDesc.PropDesc> props = BeanUtil.getBeanDesc(bean.getClass()).getProps();
 
         String key;
         Method getter;
         Object value;
-        for (PropDesc prop : props) {
+        for (BeanDesc.PropDesc prop : props) {
             key = prop.getFieldName();
             // 过滤class属性
             // 得到property对应的getter方法

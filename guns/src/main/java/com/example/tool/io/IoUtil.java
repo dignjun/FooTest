@@ -1,7 +1,10 @@
 package com.example.tool.io;
 
+import com.example.tool.convert.Convert;
+import com.example.tool.exceptions.UtilException;
 import com.example.tool.lang.Assert;
 import com.example.tool.util.CharsetUtil;
+import com.example.tool.util.HexUtil;
 import com.example.tool.util.StrUtil;
 
 import java.io.*;

@@ -1,5 +1,18 @@
 package com.example.tool.bean.copier;
 
+import com.example.tool.bean.BeanDesc;
+import com.example.tool.bean.BeanUtil;
+import com.example.tool.bean.copier.provider.BeanValueProvider;
+import com.example.tool.bean.copier.provider.MapValueProvider;
+import com.example.tool.collection.CollUtil;
+import com.example.tool.convert.Convert;
+import com.example.tool.exceptions.UtilException;
+import com.example.tool.lang.copier.Copier;
+import com.example.tool.map.MapUtil;
+import com.example.tool.util.ObjectUtil;
+import com.example.tool.util.StrUtil;
+import com.example.tool.util.TypeUtil;
+
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashSet;
@@ -106,14 +119,14 @@ public class BeanCopier<T> implements Copier<T> {
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private void beanToMap(Object bean, Map targetMap) {
-        final Collection<PropDesc> props = BeanUtil.getBeanDesc(bean.getClass()).getProps();
+        final Collection<BeanDesc.PropDesc> props = BeanUtil.getBeanDesc(bean.getClass()).getProps();
         final HashSet<String> ignoreSet = (null != copyOptions.ignoreProperties) ? CollUtil.newHashSet(copyOptions.ignoreProperties) : null;
         final CopyOptions copyOptions = this.copyOptions;
 
         String key;
         Method getter;
         Object value;
-        for (PropDesc prop : props) {
+        for (BeanDesc.PropDesc prop : props) {
             key = prop.getFieldName();
             // 过滤class属性
             // 得到property对应的getter方法
@@ -167,12 +180,12 @@ public class BeanCopier<T> implements Copier<T> {
         final HashSet<String> ignoreSet = (null != copyOptions.ignoreProperties) ? CollUtil.newHashSet(copyOptions.ignoreProperties) : null;
         final Map<String, String> fieldReverseMapping = copyOptions.getReversedMapping();
 
-        final Collection<PropDesc> props = BeanUtil.getBeanDesc(actualEditable).getProps();
+        final Collection<BeanDesc.PropDesc> props = BeanUtil.getBeanDesc(actualEditable).getProps();
         String fieldName;
         Object value;
         Method setterMethod;
         Class<?> propClass;
-        for (PropDesc prop : props) {
+        for (BeanDesc.PropDesc prop : props) {
             // 获取值
             fieldName = prop.getFieldName();
             if (CollUtil.contains(ignoreSet, fieldName)) {
