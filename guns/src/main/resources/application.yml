@@ -4,7 +4,7 @@ server:
 
 guns:
   swagger-open: true
-  kaptcha-open: flase
+  kaptcha-open: false
   spring-session-open: false
   session-invalidate-time: 1800
   session-validation-interval: 900

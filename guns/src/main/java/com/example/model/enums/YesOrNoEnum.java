@@ -10,8 +10,8 @@ import lombok.Getter;
  */
 @Getter
 public enum YesOrNoEnum {
-    YES(true, "是", 1),
-    NO(false,"否", 2);
+    Y(true, "是", 1),
+    N(false,"否", 2);
 
     private Integer code;
     private String desc;
