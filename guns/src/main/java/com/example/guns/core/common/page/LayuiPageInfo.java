@@ -13,32 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.guns.core.common.constant.state;
+package com.example.guns.core.common.page;
+
+import lombok.Data;
+
+import java.util.List;
 
 /**
- * 业务是否成功的日志记录
+ * 分页结果的封装(for Layui Table)
  *
  */
-public enum LogSucceed {
+@Data
+public class LayuiPageInfo {
 
-    SUCCESS("成功"),
-    FAIL("失败");
+    private Integer code = 0;
 
-    String message;
+    private String msg = "请求成功";
 
-    LogSucceed(String message) {
-        this.message = message;
-    }
+    private List data;
 
-    public String getMessage() {
-        return message;
-    }
+    private long count;
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }}
+}

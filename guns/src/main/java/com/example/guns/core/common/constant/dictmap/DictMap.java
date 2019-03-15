@@ -13,32 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.guns.core.common.constant.state;
+package com.example.guns.core.common.constant.dictmap;
+
+
+import com.example.guns.core.common.constant.dictmap.base.AbstractDictMap;
 
 /**
- * 业务是否成功的日志记录
+ * 字典map
  *
  */
-public enum LogSucceed {
+public class DictMap extends AbstractDictMap {
 
-    SUCCESS("成功"),
-    FAIL("失败");
-
-    String message;
-
-    LogSucceed(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    @Override
+    public void init() {
+        put("dictId", "字典名称");
+        put("dictName", "字典名称");
+        put("dictValues", "字典内容");
     }
 
     @Override
-    public String toString() {
-        return super.toString();
-    }}
+    protected void initBeWrapped() {
+
+    }
+}

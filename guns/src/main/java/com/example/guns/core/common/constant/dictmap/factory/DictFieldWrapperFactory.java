@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  * @author DINGJUN
  * @date 2019.03.14
  */
-public class DictFieldWarpperFactory {
+public class DictFieldWrapperFactory {
     public static Object createFieldWrapper(Object parameter, String methodName) {
         IConstantFactory constantFactory = ConstantFactory.me();
         try {

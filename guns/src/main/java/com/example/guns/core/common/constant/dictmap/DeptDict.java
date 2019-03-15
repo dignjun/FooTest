@@ -13,32 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.guns.core.common.constant.state;
+package com.example.guns.core.common.constant.dictmap;
+
+
+import com.example.guns.core.common.constant.dictmap.base.AbstractDictMap;
 
 /**
- * 业务是否成功的日志记录
+ * 部门的映射
  *
  */
-public enum LogSucceed {
+public class DeptDict extends AbstractDictMap {
 
-    SUCCESS("成功"),
-    FAIL("失败");
-
-    String message;
-
-    LogSucceed(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    @Override
+    public void init() {
+        put("deptId", "部门名称");
+        put("num", "部门排序");
+        put("pid", "上级名称");
+        put("simplename", "部门简称");
+        put("fullname", "部门全称");
+        put("description", "备注");
     }
 
     @Override
-    public String toString() {
-        return super.toString();
-    }}
+    protected void initBeWrapped() {
+        putFieldWrapperMethodName("deptId", "getDeptName");
+        putFieldWrapperMethodName("pid", "getDeptName");
+    }
+}

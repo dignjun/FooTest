@@ -13,32 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.guns.core.common.constant.state;
+package com.example.guns.core.util;
+
+
+import com.example.core.util.SpringContextHolder;
+import com.example.guns.config.properties.GunsProperties;
 
 /**
- * 业务是否成功的日志记录
- *
+ * 验证码工具类
  */
-public enum LogSucceed {
+public class KaptchaUtil {
 
-    SUCCESS("成功"),
-    FAIL("失败");
-
-    String message;
-
-    LogSucceed(String message) {
-        this.message = message;
+    /**
+     * 获取验证码开关
+     */
+    public static Boolean getKaptchaOnOff() {
+        return SpringContextHolder.getBean(GunsProperties.class).getKaptchaOpen();
     }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }}
+}

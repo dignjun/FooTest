@@ -20,12 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 常量生产工厂
  * @author DINGJUN
  * @date 2019.03.14
  */
 @Component
 @DependsOn("springContextHolder")
-public class ConstantFactory implements IConstantFactory{
+public class ConstantFactory implements IConstantFactory {
     private RoleMapper roleMapper = SpringContextHolder.getBean(RoleMapper.class);
     private DeptMapper deptMapper = SpringContextHolder.getBean(DeptMapper.class);
     private DictMapper dictMapper = SpringContextHolder.getBean(DictMapper.class);

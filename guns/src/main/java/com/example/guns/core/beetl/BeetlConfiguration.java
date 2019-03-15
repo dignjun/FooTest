@@ -1,6 +1,7 @@
 package com.example.guns.core.beetl;
 
 import com.example.core.util.ToolUtil;
+import com.example.guns.core.util.KaptchaUtil;
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
 
 import java.util.HashMap;
