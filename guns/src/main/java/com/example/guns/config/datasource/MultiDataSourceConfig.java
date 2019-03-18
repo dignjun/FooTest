@@ -19,6 +19,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
+ * 多数据源配置
+ * 注意:由于引入多数据源,所以让spring事物的aop要在多数据源切换的aop的后面(how-如何实现的呢?)
  * @author DINGJUN
  * @date 2019.03.14
  */
