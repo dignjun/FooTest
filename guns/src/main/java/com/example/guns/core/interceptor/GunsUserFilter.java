@@ -17,71 +17,54 @@ import javax.servlet.http.HttpServletResponse;
  * <p/>
  * If the accessor is not a known user, then they will be redirected to the {@link #setLoginUrl(String) loginUrl}</p>
  *
- * @since 0.9
+ * @author DINGJUN
+ * @date 2019.03.19
  */
-public class GunsUserFilter extends AccessControlFilter{
-
-    /**
-     * Returns <code>true</code> if the request is a
-     * {@link #isLoginRequest(ServletRequest, ServletResponse) loginRequest} or
-     * if the current {@link #getSubject(ServletRequest, ServletResponse) subject}
-     * is not <code>null</code>, <code>false</code> otherwise.
-     *
-     * @return <code>true</code> if the request is a
-     * {@link #isLoginRequest(ServletRequest, ServletResponse) loginRequest} or
-     * if the current {@link #getSubject(ServletRequest, ServletResponse) subject}
-     * is not <code>null</code>, <code>false</code> otherwise.
-     */
-    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-        if (isLoginRequest(request, response)) {
+public class GunsUserFilter extends AccessControlFilter {
+    @Override
+    protected boolean isAccessAllowed(ServletRequest servletRequest, ServletResponse servletResponse, Object object) throws Exception {
+        if (isLoginRequest(servletRequest, servletResponse)) {
             return true;
         } else {
-            Subject subject = getSubject(request, response);
-            // If principal is not null, then the user is known and should be allowed access.
+            Subject subject = getSubject(servletRequest, servletResponse);
+            // if principal is not null, then the user is know and should be allowed access.
             return subject.getPrincipal() != null;
         }
     }
 
-    /**
-     * This default implementation simply calls
-     * {@link #saveRequestAndRedirectToLogin(ServletRequest, ServletResponse) saveRequestAndRedirectToLogin}
-     * and then immediately returns <code>false</code>, thereby preventing the chain from continuing so the redirect may
-     * execute.
-     */
-    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        HttpServletRequest httpServletRequest = WebUtils.toHttp(request);
-        HttpServletResponse httpServletResponse = WebUtils.toHttp(response);
-
+    @Override
+    protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
+        HttpServletRequest httpServletRequest = WebUtils.toHttp(servletRequest);
+        HttpServletResponse httpServletResponse = WebUtils.toHttp(servletResponse);
         /**
          * 如果是ajax请求则不进行跳转
          */
-        if (httpServletRequest.getHeader("x-requested-with") != null
-                && httpServletRequest.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")) {
+        if (httpServletRequest.getHeader("x-requested-with") != null && httpServletRequest.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")) {
             httpServletResponse.setHeader("sessionstatus", "timeout");
             return false;
         } else {
-
             /**
-             * 第一次点击页面
+             * 第一次点击
              */
             String referer = httpServletRequest.getHeader("Referer");
             if (referer == null) {
-                saveRequestAndRedirectToLogin(request, response);
+                saveRequestAndRedirectToLogin(servletRequest, servletResponse);
                 return false;
             } else {
-
                 /**
-                 * 从别的页面跳转过来的
+                 * 从别的页面跳转过来
                  */
                 if (ShiroKit.getSession().getAttribute("sessionFlag") == null) {
                     httpServletRequest.setAttribute("tips", "session超时");
-                    httpServletRequest.getRequestDispatcher("/login").forward(request, response);
+                    httpServletRequest.getRequestDispatcher("/login").forward(servletRequest, servletResponse);
                     return false;
                 } else {
-                    saveRequestAndRedirectToLogin(request, response);
+                    saveRequestAndRedirectToLogin(servletRequest, servletResponse);
                     return false;
                 }
             }
         }
     }
 }
+
+

@@ -76,7 +76,7 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    @ConditionalOnProperty(prefix = "guns", name = "spring-session-open", havingValue = "true")
+    @ConditionalOnProperty(prefix = "guns", name = "spring-session-open", havingValue = "false")
     public DefaultWebSessionManager defaultWebSessionManager(CacheManager cacheShiroManager, GunsProperties gunsProperties){
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setCacheManager(cacheShiroManager);
@@ -95,7 +95,7 @@ public class ShiroConfig {
      * 缓存管理器 使用Ehcache实现
      */
     @Bean
-    public CacheManager getcacheShiroManager(EhCacheManagerFactoryBean ehcache){
+    public CacheManager getCacheShiroManager(EhCacheManagerFactoryBean ehcache){
         EhCacheManager ehCacheManager = new EhCacheManager();
         ehCacheManager.setCacheManager(ehcache.getObject());
         return ehCacheManager;

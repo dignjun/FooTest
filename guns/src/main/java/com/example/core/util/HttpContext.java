@@ -22,7 +22,7 @@ public class HttpContext {
      *
      * @return
      */
-    public static String getId() {
+    public static String getIp() {
         HttpServletRequest request = getRequest();
         if (null == request) {
             return "127.0.0.1";
