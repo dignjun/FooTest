@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.stylefeng.guns.modular.system.mapper.DeptMapper">
+<mapper namespace="com.example.guns.modular.system.mapper.DeptMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.entity.Dept">
+    <resultMap id="BaseResultMap" type="com.example.guns.modular.system.entity.Dept">
         <id column="DEPT_ID" property="deptId"/>
         <result column="PID" property="pid"/>
         <result column="PIDS" property="pids"/>
@@ -23,7 +23,7 @@
         DEPT_ID AS deptId, PID AS pid, PIDS AS pids, SIMPLE_NAME AS simpleName, FULL_NAME AS fullName, DESCRIPTION AS description, VERSION AS version, SORT AS sort, CREATE_TIME AS createTime, UPDATE_TIME AS updateTime, CREATE_USER AS createUser, UPDATE_USER AS updateUser
     </sql>
 
-    <select id="tree" resultType="cn.stylefeng.guns.core.common.node.ZTreeNode">
+    <select id="tree" resultType="com.example.guns.core.common.node.ZTreeNode">
 		select DEPT_ID AS id, PID as pId, SIMPLE_NAME as name,
 		(
 		CASE
@@ -48,7 +48,7 @@
         order by SORT ASC
     </select>
 
-    <select id="treeviewNodes" resultType="cn.stylefeng.guns.core.common.node.TreeviewNode">
+    <select id="treeviewNodes" resultType="com.example.guns.core.common.node.TreeviewNode">
         select DEPT_ID AS tags, PID as parentId, SIMPLE_NAME as text from sys_dept
     </select>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.stylefeng.guns.modular.system.mapper.RelationMapper">
+<mapper namespace="com.example.guns.modular.system.mapper.RelationMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.entity.Relation">
+    <resultMap id="BaseResultMap" type="com.example.guns.modular.system.entity.Relation">
         <id column="RELATION_ID" property="relationId" />
         <result column="MENU_ID" property="menuId" />
         <result column="ROLE_ID" property="roleId" />

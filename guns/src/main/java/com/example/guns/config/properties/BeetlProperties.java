@@ -12,8 +12,7 @@ import java.util.Properties;
  * @author DINGJUN
  * @date 2019.03.14
  */
-//@Configuration
-@Component
+@Configuration
 @ConfigurationProperties(prefix = BeetlProperties.BEETLCONF_PREFIX)
 public class BeetlProperties {
 

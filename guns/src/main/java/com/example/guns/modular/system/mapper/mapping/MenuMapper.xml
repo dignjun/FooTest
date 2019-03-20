@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.stylefeng.guns.modular.system.mapper.MenuMapper">
+<mapper namespace="com.example.guns.modular.system.mapper.MenuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.entity.Menu">
+    <resultMap id="BaseResultMap" type="com.example.guns.modular.system.entity.Menu">
         <id column="MENU_ID" property="menuId"/>
         <result column="CODE" property="code"/>
         <result column="PCODE" property="pcode"/>
@@ -50,7 +50,7 @@
         sys_relation where ROLE_ID = #{roleId}
     </select>
 
-    <select id="menuTreeList" resultType="cn.stylefeng.guns.core.common.node.ZTreeNode">
+    <select id="menuTreeList" resultType="com.example.guns.core.common.node.ZTreeNode">
         SELECT
         m1.MENU_ID AS id,
         (
@@ -78,7 +78,7 @@
         m1.MENU_ID ASC
     </select>
 
-    <select id="menuTreeListByMenuIds" resultType="cn.stylefeng.guns.core.common.node.ZTreeNode">
+    <select id="menuTreeListByMenuIds" resultType="com.example.guns.core.common.node.ZTreeNode">
         SELECT
         m1.MENU_ID AS id,
         (
@@ -140,7 +140,7 @@
         where rel.ROLE_ID = #{roleId}
     </select>
 
-    <select id="getMenusByRoleIds" resultType="cn.stylefeng.guns.core.common.node.MenuNode">
+    <select id="getMenusByRoleIds" resultType="com.example.guns.core.common.node.MenuNode">
         SELECT
         m1.MENU_ID AS id,
         m1.ICON AS icon,

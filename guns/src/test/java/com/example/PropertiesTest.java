@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.core.util.SpringContextHolder;
+import com.example.guns.GunsApplication;
 import com.example.guns.config.properties.BeetlProperties;
 import com.example.guns.config.properties.GunsProperties;
 import org.junit.Test;

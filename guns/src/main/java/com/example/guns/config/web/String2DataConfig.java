@@ -20,7 +20,6 @@ import java.util.Date;
 @Configuration
 public class String2DataConfig {
 
-
     @Autowired
     private RequestMappingHandlerAdapter handlerAdapter;
 
