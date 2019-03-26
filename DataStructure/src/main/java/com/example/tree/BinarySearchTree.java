@@ -1,6 +1,7 @@
 package com.example.tree;
 
 import java.nio.BufferUnderflowException;
+import java.util.Stack;
 
 /**
  * 二叉查找树设计
@@ -170,6 +171,118 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
             element = theElement;
             left = lt;
             right = rt;
+        }
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        tree.insert(6);
+        tree.insert(3);
+        tree.insert(5);
+        tree.insert(8);
+        tree.insert(1);
+        tree.insert(7);
+        tree.print1(tree.root);
+        System.out.println("-----");
+        tree.print2(tree.root);
+        System.out.println("-----");
+        tree.print3(tree.root);
+        System.out.println("-----");
+        tree.print4(tree.root);
+        System.out.println("-----");
+        tree.print5(tree.root);
+        System.out.println("-----");
+        tree.print6(tree.root);
+    }
+
+    // 前序遍历--递归例程
+    private void print1(BinaryNode<T> t) {
+        if (t != null) {
+            System.out.println(t.element);
+            print1(t.left);
+            print1(t.right);
+        }
+    }
+
+    // 前序遍历--循环例程
+    private void print2(BinaryNode<T> t) {
+        Stack<BinaryNode> stack = new Stack<>();
+        while (true) {
+            while (t != null) {
+                System.out.println(t.element);
+                stack.push(t);
+                t = t.left;
+            }
+            if (stack.isEmpty())
+                break;
+            t = stack.pop();
+            t = t.right;
+        }
+    }
+
+
+    // 中序遍历--递归例程
+    private void print3(BinaryNode<T> t) {
+        if (null != t) {
+            print3(t.left);
+            System.out.println(t.element);
+            print3(t.right);
+        }
+    }
+
+    // 中序遍历--循环例程
+    private void print4(BinaryNode<T> t) {
+        Stack<BinaryNode> stack = new Stack<>();
+        while (true) {
+            while (null != t) {
+                stack.push(t);
+                t = t.left;
+            }
+            if (stack.isEmpty())
+                break;
+            t = stack.pop();
+            System.out.println(t.element);
+            t = t.right;
+        }
+    }
+
+
+    // 后续遍历--递归例程
+    private void print5(BinaryNode<T> t) {
+        if (null != t) {
+            print5(t.left);
+            print5(t.right);
+            System.out.println(t.element);
+        }
+    }
+
+    // 后续遍历--循环例程
+    private void print6(BinaryNode<T> t) {
+        Stack<BinaryNode> stack = new Stack<>();
+        while (true) {
+            if (t != null) {
+                stack.push(t);
+                t = t.left;
+            } else {
+                if (stack.isEmpty()) return;
+
+                if (null == stack.lastElement().element) {
+                    t = stack.pop();
+                    System.out.print(t.element + "\t");
+                    while (t == stack.lastElement().right) {
+                        System.out.print(stack.lastElement().element + "\t");
+                        t = stack.pop();
+                        if (stack.isEmpty()) {
+                            break;
+                        }
+                    }
+                }
+
+                if (!stack.isEmpty())
+                    t = stack.lastElement().right;
+                else
+                    t = null;
+            }
         }
     }
 }
