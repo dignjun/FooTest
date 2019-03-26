@@ -182,6 +182,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         tree.insert(8);
         tree.insert(1);
         tree.insert(7);
+        tree.insert(4);
         tree.print1(tree.root);
         System.out.println("-----");
         tree.print2(tree.root);
@@ -194,6 +195,12 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         System.out.println("-----");
         tree.print6(tree.root);
     }
+
+    /**
+     前序递归遍历算法：访问根结点-->递归遍历根结点的左子树-->递归遍历根结点的右子树
+     中序递归遍历算法：递归遍历根结点的左子树-->访问根结点-->递归遍历根结点的右子树
+     后序递归遍历算法：递归遍历根结点的左子树-->递归遍历根结点的右子树-->访问根结点
+     */
 
     // 前序遍历--递归例程
     private void print1(BinaryNode<T> t) {
@@ -266,7 +273,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
             } else {
                 if (stack.isEmpty()) return;
 
-                if (null == stack.lastElement().element) {
+                if (null == stack.lastElement().right) {
                     t = stack.pop();
                     System.out.print(t.element + "\t");
                     while (t == stack.lastElement().right) {
