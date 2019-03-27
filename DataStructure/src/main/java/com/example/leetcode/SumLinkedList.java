@@ -25,7 +25,7 @@ public class SumLinkedList {
         ListNode q = l2;
         ListNode curr = dummyHead;
         int carry = 0;
-        while (l1 != null || l2 !=null) {
+        while (p != null || q !=null) {
             int x = (p != null) ? p.val : 0;
             int y = (q != null) ? q.val : 0;
             int sum = carry + x + y;
@@ -34,8 +34,6 @@ public class SumLinkedList {
             curr = curr.next;
             if(p != null) p = p.next;
             if(q != null) q = q.next;
-            l1 = l1.next;
-            l2 = l2.next;
         }
         if(carry > 0) {
             curr.next = new ListNode(carry);
