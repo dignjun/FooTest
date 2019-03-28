@@ -49,7 +49,11 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     }
 
     public void printTree() {
-
+        if(null == root){
+            System.out.println("empty tree");
+        } else {
+            printTree(root);
+        }
     }
 
     /**
@@ -146,8 +150,50 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     }
 
     private void printTree(BinaryNode<T> t) {
-        System.out.println("BinaryTree list");
+        System.out.println("--中序遍历--");
+        // 中序遍历
+        if(null != t) {
+            printTree(t.left);
+            System.out.println(t.element);
+            printTree(t.right);
+        }
+        System.out.println("--后续遍历--");
+        // 后续遍历
+        if(null != t) {
+            printTree(t.left);
+            printTree(t.right);
+            System.out.println(t.element);
+        }
+        System.out.println("--前序遍历--");
+        // 前序遍历
+        if(null != t) {
+            System.out.println(t.element);
+            printTree(t.left);
+            printTree(t.right);
+        }
     }
+
+    /**
+     * 计算树的高度
+     *
+     * @return
+     */
+    public int height() {
+        if(root == null) {
+            return -1;
+        } else {
+            return height(root);
+        }
+    }
+
+    private int height(BinaryNode<T> t) {
+        if(t == null) {
+            return -1;
+        } else {
+            return 1 + Math.max(height(t.left), height(t.right));
+        }
+    }
+
 
 
     /**
