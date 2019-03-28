@@ -173,6 +173,27 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
     }
 
+    /**
+     * 计算树的高度
+     *
+     * @return
+     */
+    public int height() {
+        if(root == null) {
+            return -1;
+        } else {
+            return height(root);
+        }
+    }
+
+    private int height(BinaryNode<T> t) {
+        if(t == null) {
+            return -1;
+        } else {
+            return 1 + Math.max(height(t.left), height(t.right));
+        }
+    }
+
 
 
     /**
