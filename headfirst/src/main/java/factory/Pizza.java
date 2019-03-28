@@ -7,11 +7,11 @@ import java.util.ArrayList;
  *
  * Created by DINGJUN on 2019.03.27.
  */
-public abstract class Pizza {
-    String name;
-    String dough;
-    String sauce;
-    ArrayList toppings = new ArrayList<>();
+public class Pizza {
+    public String name;
+    public String dough;
+    public String sauce;
+    public ArrayList toppings = new ArrayList<>();
 
     public void prepare() {
         System.out.println("preparing " + name);
