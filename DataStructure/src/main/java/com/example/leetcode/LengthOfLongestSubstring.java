@@ -33,9 +33,26 @@ public class LengthOfLongestSubstring {
 
 
     public static void main(String[] args) {
-        LengthOfLongestSubstring ls = new LengthOfLongestSubstring();
-        int res = ls.lengthOfLongestSubstring("asddasdfsasdf");
-        System.out.println("无重复字符最长子串:" + res);
+//        LengthOfLongestSubstring ls = new LengthOfLongestSubstring();
+//        int res = ls.lengthOfLongestSubstring("asddasdfsasdf");
+//        System.out.println("无重复字符最长子串:" + res);
+
+        String s = " ";
+        HashSet<Character> set = new HashSet<Character>();
+        int i = 0;
+        int j = 0;
+        int n = s.length();
+        int result = 0;
+        while(i < s.length() && j < s.length()) {
+            if(set.add(s.charAt(j++))){
+               result = Math.max(result, j-i);
+            } else {
+                set.clear();
+                i++;
+                j = i;
+            }
+        }
+        System.out.println("length:" + result);
     }
 
     public int lengthOfLongestSubstring2(String s) {
