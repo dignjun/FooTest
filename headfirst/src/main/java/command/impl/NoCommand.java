@@ -11,4 +11,9 @@ public class NoCommand implements Command{
     public void execute() {
         // 重写的空方法,初始化使用空方法避免在命令数组中执行的时候每次使用命令的检查
     }
+
+    @Override
+    public void undo() {
+
+    }
 }
