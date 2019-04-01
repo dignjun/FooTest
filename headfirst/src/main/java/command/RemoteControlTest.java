@@ -8,7 +8,7 @@ import command.impl.LightOnCommand;
 public class RemoteControlTest {
     public static void main(String[] args) {
         SimpleRemoteControl simpleRemoteControl = new SimpleRemoteControl();
-        Light light = new Light();
+        Light light = new Light("living room");
         LightOnCommand command = new LightOnCommand(light);
         simpleRemoteControl.setCommand(command);
         simpleRemoteControl.buttonWasPressed();

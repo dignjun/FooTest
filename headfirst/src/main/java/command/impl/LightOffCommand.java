@@ -4,19 +4,17 @@ import command.Command;
 import command.Light;
 
 /**
- * concrete command 指令实现
- * Created by DINGJUN on 2019.03.31.
+ * 其他的命令,ConcreteCommand
+ * Created by DINGJUN on 2019.04.01.
  */
-public class LightOnCommand implements Command {
+public class LightOffCommand implements Command {
     Light light;
-
-    public LightOnCommand(Light light) {
+    public LightOffCommand(Light light) {
         this.light = light;
     }
-
     @Override
     public void execute() {
-        light.on();
+        light.off();
     }
 
     @Override
