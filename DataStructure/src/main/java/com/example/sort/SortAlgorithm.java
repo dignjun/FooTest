@@ -14,7 +14,10 @@ public class SortAlgorithm {
         System.out.println("----");
         shellSort(arr);
         print(arr);
-
+        System.out.println("----");
+        Integer[] arr1 = {3,2,5,17,4,8};
+        bubbleSort(arr1);
+        print(arr1);
     }
 
     /**
@@ -102,6 +105,22 @@ public class SortAlgorithm {
     }
 
 
+    /**
+     * 冒泡
+     * @param a
+     * @param <T>
+     */
+    public static <T extends Comparable<? super T>> void bubbleSort(T[] a) {
+        for (int i=0; i < a.length; i++) {
+            for (int j=0; j < a.length-1; j++) {
+                if(a[j].compareTo(a[j+1]) > 0) {
+                    T tmp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = tmp;
+                }
+            }
+        }
+    }
 
 
 
