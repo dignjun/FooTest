@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+
+    <!--extjs3-->
+    <script src="../ext/adapter/ext/ext-base.js"></script>
+    <!--<link rel="stylesheet" href="../ext/resources/css/ext-all.css">-->
+    <!--<script src="../ext/ext-all.js"></script>-->
+
+    <!--css3 keyframes-->
+    <style>
+        @-webkit-keyframes mymove {
+            from {
+                height: 100px;
+                width: 100px;
+            }
+            to {
+                height: 200px;
+                width: 200px;
+            }
+        }
+
+        /*使用的是css3过渡，并不是动画效果*/
+        .time_data_trans {
+            transition: width 5s;
+            -moz-transition: width 5s;	/* Firefox 4 */
+            -webkit-transition: width 5s;	/* Safari 和 Chrome */
+            -o-transition: width 5s;	/* Opera */
+        }
+
+    </style>
+
+    <script src="../ext6/ext-all.js"></script>
+    <link rel="stylesheet" href="../ext6/resources/Admin-all.css">
+
+</head>
+<script type="text/javascript">
+    Ext.onReady(function () {
+        /*extjs的helloword*/
+//        Ext.MessageBox.alert("hello ext");
+
+        /*
+         css3中的动画通过keyframes样式属性处理。
+         1.样式的定义：
+         <style>
+         @-webkit-keyframes mymove {  // @keyframes、@-moz-keyframes Firefox（火狐）、@-webkit-keyframes Safari 和 Chrome、@-o-keyframes Opera（欧朋浏览器）
+         from {
+         height: 100px;
+         width: 100px;
+         }
+         to {
+         height: 200px;
+         width: 200px;
+         }
+         }
+         </style>
+         2.样式的使用：
+         <div style="-webkit-animation:mymove 5s infinite alternate;width: 200px;height: 200px;background-color: #ff7870">&nbsp;</div>
+         元素标签的style属性中指定使用的动画样式“名称和时间”，不同的浏览器的定义不同，使用时也存着差异。
+         div
+         {
+         animation: myfirst 5s;
+         -moz-animation: myfirst 5s;	// Firefox
+         -webkit-animation: myfirst 5s;	// Safari 和 Chrome
+         -o-animation: myfirst 5s;	    // Opera
+         }
+         3.animation属性详解
+         -webkit-animation:myfirst 5s;
+         -webkit-animation：动画样式属性。
+         myfirst: 动画名称
+         5s: 动画时长
+         // TODO
+         */
+
+        // Ext.grid.Panel
+        Ext.create('Ext.data.Store', {
+            storeId: 'simpsonsStore',
+            fields:[ 'name', 'email', 'phone','time'],
+            data: [
+                { name: 'Lisa', email: 'lisa@simpsons.com', phone: '555-111-1224', time:''},
+                { name: 'Bart', email: 'bart@simpsons.com', phone: '555-222-1234', time:'' },
+                { name: 'Homer', email: 'homer@simpsons.com', phone: '555-222-1244', time:'' },
+                { name: 'Marge', email: 'marge@simpsons.com', phone: '555-222-1254', time:'' }
+            ]
+        });
+
+        Ext.create('Ext.grid.Panel', {
+            title: 'Simpsons',
+            store: Ext.data.StoreManager.lookup('simpsonsStore'),
+            columns: [
+                { text: 'Name', dataIndex: 'name' },
+                { text: 'Email', dataIndex: 'email', flex: 1 },
+                { text: 'Phone', dataIndex: 'phone' },
+                { text: 'Time', dataIndex: 'time', width:300,renderer:function(value, index, record, cell, column) {
+                    if(!record.get('timeleft'))
+                        record.set('timeleft', 60);
+                    var len = parseInt(100 * record.get('timeleft') / 60);
+                    var random = parseInt(Math.random()*1000,10)+1; // 1-1000随机数
+                    console.log("random:" + random);
+                    var s2 = '<div style="height: 100%;position: relative">';
+
+                    s2 += '<div style="height: 19px;width: 100px;background-color: #ff7870">&nbsp;</div>';
+
+                    s2 += '<div class="time_data_trans" selfid="'+ random +'" style="margin-top: -19px; width: '+ len +'px; margin-left:0px;float: left;background-color: red">&nbsp;</div>';
+
+                    s2 += '</div>';
+
+                    return s2;
+                }}
+            ],
+            height: 200,
+            width: 400,
+            listeners: {
+                afterrender: function(cmp, opts) {
+                    setInterval(function() {
+                        console.log('timer scan');
+                        var self = cmp;
+                        var view = cmp.getView();
+//                        cmp.getStore().each(function (r) {
+//                            r.data.timeleft = r.get('timeleft') - 5;
+//                            view.refreshNode(r);
+//                        }, cmp)
+                        var records = self.getStore().getData().items;
+                        for(var i = 0; i < records.length; i ++) {
+                            records[i].data.timeleft = records[i].data.timeleft - 5;
+                            if(records[i].get('name') == 'Lisa')
+//                            view.refreshNode(records[i]);
+                            view.refresh();
+                        }
+                    }, 5000)
+                }
+            },
+            renderTo: Ext.getBody()
+        });
+
+
+
+
+    })
+</script>
+<body>
+<h3>this is my first display</h3>
+<!--css3 keyframes 动画演示-->
+<!--<div style="-webkit-animation:mymove 5s infinite alternate;width: 200px;height: 200px;background-color: #ff7870">&nbsp;</div>-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
