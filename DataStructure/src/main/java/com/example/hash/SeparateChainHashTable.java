@@ -1,5 +1,6 @@
 package com.example.hash;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -64,6 +65,18 @@ public class SeparateChainHashTable<T> {
     private int currentSize;
 
     private void rehash() {
+        List<T>[] oldList = theLists;
+        // create new double-size empty table
+        theLists = new List[nextPrime(2 * theLists.length)];
+        for (int j = 0; j< theLists.length; j ++) {
+            theLists[j] = new LinkedList<>();
+        }
+        // copy
+        currentSize = 0;
+        for (int i = 0; i < oldList.length; i++){
+            for (T item: oldList[i])
+                insert(item);
+        }
     }
 
     private int myhash(T t) {

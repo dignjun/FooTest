@@ -5,32 +5,37 @@ package com.example.hash;
  * Created by DINGJUN on 2019.04.02.
  */
 public class QuadraticProbingHashTable<T> {
-    public QuadraticProbingHashTable(){
+    public QuadraticProbingHashTable() {
         this(DEFAULT_TABLE_SIZE);
     }
-    public QuadraticProbingHashTable(int size){
+
+    public QuadraticProbingHashTable(int size) {
         allocateArray(size);
         makeEmpty();
     }
-    public void makeEmpty(){
+
+    public void makeEmpty() {
         currentSize = 0;
         for (int i = 0; i < array.length; i++) {
             array[i] = null;
         }
     }
-    public boolean contains(T t){
+
+    public boolean contains(T t) {
         int currentPos = findPos(t);
         return isActive(currentPos);
     }
-    public void insert(T t){
+
+    public void insert(T t) {
         int currentPos = findPos(t);
-        if(isActive(currentPos))
-            return ;
+        if (isActive(currentPos))
+            return;
         array[currentPos] = new HashEntry<>(t, true);
-        if(currentSize > array.length / 2)
+        if (currentSize > array.length / 2)
             rehash();
     }
-    public void remove(T t){
+
+    public void remove(T t) {
         int currentPos = findPos(t);
         if (isActive(currentPos))
             array[currentPos].isActive = false;
@@ -39,6 +44,7 @@ public class QuadraticProbingHashTable<T> {
     private static class HashEntry<T> {
         public T element; // the element
         public boolean isActive; // false if marked deleted
+
         public HashEntry(T e, boolean i) {
             element = e;
             isActive = i;
@@ -53,10 +59,12 @@ public class QuadraticProbingHashTable<T> {
     private void allocateArray(int arraySize) {
         array = new HashEntry[nextPrime(arraySize)];
     }
-    private boolean isActive(int currentPos){
+
+    private boolean isActive(int currentPos) {
         return array[currentPos] != null && array[currentPos].isActive;
     }
-    private int findPos(T t){
+
+    private int findPos(T t) {
         int offset = 1;
         int currentPos = myhash(t);
         while (array[currentPos] != null && !array[currentPos].element.equals(t)) {
@@ -67,14 +75,29 @@ public class QuadraticProbingHashTable<T> {
         }
         return currentPos;
     }
-    private void rehash(){}
-    private int myhash(T t){
+
+    private void rehash() {
+        HashEntry<T>[] oldArray = array;
+        // create a new double-size empty table
+        allocateArray(nextPrime(2 * oldArray.length));
+        currentSize = 0;
+        // copy table over
+        for (int i = 0; i < oldArray.length; i++) {
+            if (oldArray[i] != null && oldArray[i].isActive) {
+                insert(oldArray[i].element);
+            }
+        }
+    }
+
+    private int myhash(T t) {
         return 1;
     }
-    private static int nextPrime(int n){
+
+    private static int nextPrime(int n) {
         return -1;
     }
-    private static boolean isPrime(int n){
+
+    private static boolean isPrime(int n) {
         return false;
     }
 
