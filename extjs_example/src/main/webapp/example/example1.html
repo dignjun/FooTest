@@ -32,8 +32,9 @@
 
     </style>
 
-    <script src="../ext6/ext-all.js"></script>
+    <!--<script src="../ext6/ext-all.js"></script>-->
     <link rel="stylesheet" href="../ext6/resources/Admin-all.css">
+    <script src="../ext6/ext-all-debug.js"></script>
 
 </head>
 <script type="text/javascript">
@@ -41,38 +42,6 @@
         /*extjs的helloword*/
 //        Ext.MessageBox.alert("hello ext");
 
-        /*
-         css3中的动画通过keyframes样式属性处理。
-         1.样式的定义：
-         <style>
-         @-webkit-keyframes mymove {  // @keyframes、@-moz-keyframes Firefox（火狐）、@-webkit-keyframes Safari 和 Chrome、@-o-keyframes Opera（欧朋浏览器）
-         from {
-         height: 100px;
-         width: 100px;
-         }
-         to {
-         height: 200px;
-         width: 200px;
-         }
-         }
-         </style>
-         2.样式的使用：
-         <div style="-webkit-animation:mymove 5s infinite alternate;width: 200px;height: 200px;background-color: #ff7870">&nbsp;</div>
-         元素标签的style属性中指定使用的动画样式“名称和时间”，不同的浏览器的定义不同，使用时也存着差异。
-         div
-         {
-         animation: myfirst 5s;
-         -moz-animation: myfirst 5s;	// Firefox
-         -webkit-animation: myfirst 5s;	// Safari 和 Chrome
-         -o-animation: myfirst 5s;	    // Opera
-         }
-         3.animation属性详解
-         -webkit-animation:myfirst 5s;
-         -webkit-animation：动画样式属性。
-         myfirst: 动画名称
-         5s: 动画时长
-         // TODO
-         */
 
         // Ext.grid.Panel
         Ext.create('Ext.data.Store', {
@@ -118,16 +87,12 @@
                         console.log('timer scan');
                         var self = cmp;
                         var view = cmp.getView();
-//                        cmp.getStore().each(function (r) {
-//                            r.data.timeleft = r.get('timeleft') - 5;
-//                            view.refreshNode(r);
-//                        }, cmp)
                         var records = self.getStore().getData().items;
                         for(var i = 0; i < records.length; i ++) {
                             records[i].data.timeleft = records[i].data.timeleft - 5;
                             if(records[i].get('name') == 'Lisa')
-//                            view.refreshNode(records[i]);
-                            view.refresh();
+                                view.refreshNode(records[i]);
+//                                view.refresh();
                         }
                     }, 5000)
                 }
