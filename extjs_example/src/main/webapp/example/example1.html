@@ -68,11 +68,34 @@
                     var len = parseInt(100 * record.get('timeleft') / 60);
                     var random = parseInt(Math.random()*1000,10)+1; // 1-1000随机数
                     console.log("random:" + random);
+
+
                     var s2 = '<div style="height: 100%;position: relative">';
 
-                    s2 += '<div style="height: 19px;width: 100px;background-color: #ff7870">&nbsp;</div>';
+                    s2 += '<div style="height: 19px;width: 100px;background-color: #ffbfa0">&nbsp;</div>';
 
-                    s2 += '<div class="time_data_trans" selfid="'+ random +'" style="margin-top: -19px; width: '+ len +'px; margin-left:0px;float: left;background-color: red">&nbsp;</div>';
+                    /*
+                    证明refreshNode方法刷新的时候render生成的HTML会进行属性的更新，使用的还是第一次render之后的div，
+                    现象：
+                        1.css3的transition过渡属性可以通过伪类和js事件以及定时函数setInterval进行触发
+                        2.div点击事件，回调给div中填充div，绑定了过渡动画，修改这个填充的div的width，动画效果显示
+                        3.div点击事件，回调给div中填充div，绑定了过渡动画，然后重新填充div，绑定同一个div，修改了width宽度，没有动画效果
+                        4.refreshNode方法刷新，在renderer返回的HTML片段，div中绑定过渡动画，实现动画效果
+                        5.refresh方法刷新，没有动画效果
+                    猜想：
+                        refreshNode会刷新这个row的数据，更新属性和值，不会重新生成HTML并且渲染，下表面的random说明div的id和属性都在变化，
+                        但是过渡的效果存在
+                    */
+
+                    // if(random <= 500) { // 动态添加div，动画效果消失，将过渡效果放大
+                    //     s2 += '<div style="background-color: palevioletred;width: 100px;">&nbsp;</div>';
+                    // }
+
+                    // document.getElementById(random + '').setAttribute('abc','bac');
+
+                    record.random = random;
+                    // s2 += '<div id="' +random+ '" class="time_data_trans" selfid'+random+'="'+ random +'" style="margin-top: -19px; width: '+ len +'px; margin-left:0px;float: left;background-color: red">&nbsp;</div>';
+                    s2 += '<div id="' +random+ '" selfid'+random+'="'+ random +'" style="margin-top: -19px; width: '+ len +'px; margin-left:0px;float: left;background-color: red">&nbsp;</div>';
 
                     s2 += '</div>';
 
@@ -90,9 +113,20 @@
                         var records = self.getStore().getData().items;
                         for(var i = 0; i < records.length; i ++) {
                             records[i].data.timeleft = records[i].data.timeleft - 5;
-                            if(records[i].get('name') == 'Lisa')
+                            if(records[i].get('name') == 'Lisa') {
                                 view.refreshNode(records[i]);
 //                                view.refresh();
+
+                                var len = parseInt(100 * records[i].get('timeleft') / 60);
+                                var id = records[i].random;
+
+                                document.getElementById(id).setAttribute('class', 'time_data_trans');
+
+                                setTimeout(function() {
+                                    document.getElementById(id).style.width = len - parseInt(100 * 5 / 60) + 'px';
+                                },0)
+                            }
+
                         }
                     }, 5000)
                 }
