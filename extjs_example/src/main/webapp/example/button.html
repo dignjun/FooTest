@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button</title>
+    <script src="../ext/adapter/ext/ext-base.js"></script>
+    <link rel="stylesheet" href="../ext6/resources/Admin-all.css">
+    <script src="../ext6/ext-all-debug.js"></script>
+</head>
+<body>
+<div id="button"></div>
+<div id="cyclebutton"></div>
+<div id="segmentedbutton"></div>
+<div id="splitbutton"></div>
+</body>
+<script type="text/javascript">
+    // 页面加载后完成
+    Ext.onReady(function() {
+
+        // button
+        Ext.create('Ext.Button', {
+            text: 'button',
+            renderTo: Ext.get('button'),
+            handler: function() {
+                // alert('You clicked the button!');
+                console.log('you clicked the button!');
+            }
+        });
+
+        // 按钮有两个选项，下一次点击都是另外一个选项板
+        Ext.create('Ext.button.Cycle',{
+            showText: true,
+            prependText: 'View as ',
+            renderTo: Ext.get('cyclebutton'),
+            menu: {
+                id: 'view-type-menu',
+                items: [{
+                    text: 'text only',
+                    iconCls: 'view-text',
+                    checked: true
+                },{
+                    text:'HTML',
+                    iconCls:'view-html'
+                }]
+
+            },
+            changeHandler: function(cycleBtn, actionItem) {
+                // Ext.Msg.alert('Change View', actionItem.text);
+                console.log('change view' + actionItem.text);
+            }
+        })
+
+        //
+        Ext.create('Ext.button.Segmented',{
+            renderTo: Ext.get('segmentedbutton'),
+            allowMultiple: true,
+            items:[{
+                text: 'segmented item 1',
+                menu: [{
+                    text: 'menu item 1'
+                }]
+            },{
+                text: 'segmented item 2',
+                tooltip: 'my custom tooltip'
+            },{
+                text: 'segmented item 3'
+            }],
+            listeners: {
+                toggle:function(container, button, pressed){
+                    console.log('user toggled the' + button.text + ' button: ' + (pressed ? 'on':'off'))
+                }
+            }
+        })
+
+        // display a dropdown menu:
+        Ext.create('Ext.button.Split', {
+            renderTo: Ext.get('splitbutton'),
+            text: 'Options',
+            // handle a click on the button itself
+            handler: function() {
+                // alert("The button was clicked");
+                console.log('the button was clicked')
+            },
+            menu: new Ext.menu.Menu({
+                items: [
+                    // these will render as dropdown menu items when the arrow is clicked:
+                    {text: 'Item 1', handler: function(){ alert("Item 1 clicked"); }},
+                    {text: 'Item 2', handler: function(){ alert("Item 2 clicked"); }}
+                ]
+            })
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+</script>
+</html>
