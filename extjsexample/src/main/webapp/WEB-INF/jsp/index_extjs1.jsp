@@ -14,9 +14,9 @@
     <title>index_extjs1</title>
 </head>
 <body>
-<h3>index_extjs1</h3>
-<br/>
-<div style="align">
+<div style="text-align: center">
+    <h3>index_extjs1</h3>
+    <br/>
     <a href="javascript:ajaxrequest()">post</a> </br>
     <a href="javascript:newajaxrequest()">post2</a><br/>
     <a href="javascript:getxhrrequest()">post3</a><br/>
