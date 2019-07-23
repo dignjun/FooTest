@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Hello ExtJs</title>
+<link rel="stylesheet" type="text/css" href="../js/ext-all.css"/>
+<script type="text/javascript" src="../js/ext-base.js"></script>
+<script type="text/javascript" src="../js/ext-all.js"></script>
+</head>
+<body>
+</body>
+<script>
+    Ext.onReady(function () {
+        // alert("hello");
+    });
+    // alert("world");
+
+
+    Ext.define("myExtJs",{
+        extend: "Ext.app.ViewController",
+        alias: 'es',
+        init: function () {
+            var me = this;
+
+        }
+    });
+</script>
+</html>
