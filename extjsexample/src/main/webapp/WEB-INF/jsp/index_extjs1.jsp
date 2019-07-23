@@ -16,11 +16,12 @@
 <body>
 <h3>index_extjs1</h3>
 <br/>
-<a href="javascript:ajaxrequest()">post</a> </br>
-<a href="javascript:newajaxrequest()">post2</a><br/>
-<a href="javascript:getxhrrequest()">post3</a>
-<a href="javascript:prototypexhrrequest()">post4</a>
-
+<div style="align">
+    <a href="javascript:ajaxrequest()">post</a> </br>
+    <a href="javascript:newajaxrequest()">post2</a><br/>
+    <a href="javascript:getxhrrequest()">post3</a><br/>
+    <a href="javascript:prototypexhrrequest()">post4</a>
+</div>
 <script>
 
     function getxhrrequest() {

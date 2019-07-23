@@ -11,7 +11,8 @@ public class ExampleController {
     private String value;
 
     /**
-     * RestController返回string作为ResponseBody输出
+     * RestController返回string作为ResponseBody输出，
+     * 测试地址：http://localhost:9001/example/abc
      * @return
      */
     @RequestMapping("/abc")

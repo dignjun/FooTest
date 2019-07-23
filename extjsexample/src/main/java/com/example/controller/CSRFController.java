@@ -18,6 +18,7 @@ public class CSRFController {
 
     /**
      * 测试web服务是否正常，可以正常访问到jsp页面
+     * 测试地址：http://localhost:9001/example/index
      * @param request
      * @return
      */
