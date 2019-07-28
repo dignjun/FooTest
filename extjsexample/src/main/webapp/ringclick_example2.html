@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时动画</title>
+    <style>
+        div{
+            text-align:center;
+            height:100px;
+            line-height:100px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            setInterval(FreeTime,1000);
+        }
+        function FreeTime(){
+            var curTime = Date.now();
+            var endTime = new Date("2019-10-26 16:00:00");
+            var allFreeSeconds = (endTime-curTime)/1000;
+            if(allFreeSeconds>0){
+                var freeDay = Math.floor(allFreeSeconds/(24*60*60));
+                var freeHour = Math.floor(allFreeSeconds/(60*60) % 24);
+                var freeMinute = Math.floor(allFreeSeconds/60 % 60);
+                var freeSecond = Math.floor(allFreeSeconds%60);
+                document.getElementById("nowTime").innerHTML = "剩余"+freeDay+"天"+freeHour+"时"+freeMinute+"分"+freeSecond+"秒";
+            }
+            else{
+                document.getElementById("nowTime").innerHTML = "已结束";
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <span id="nowTime"></span>
+</div>
+</body>
+</html>

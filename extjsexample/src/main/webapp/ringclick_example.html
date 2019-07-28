@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>click</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .loading {
+            margin: 100px auto;
+            width: 25em;
+            height: 8em;
+            position: relative;
+        }
+
+        .clock {
+            position: relative;
+            width: 8em;
+            height: 8em;
+            display: inline-block;
+        }
+
+        .loading .progress {
+            position: absolute;
+            width: 6em;
+            height: 6em;
+            background-color: white;
+            border-radius: 50%;
+            left: 1em;
+            top: 1em;
+            line-height: 6em;
+            text-align: center;
+        }
+
+        .progress span {
+            font: 8px/1em Arial;
+        }
+
+        .left, .right {
+            width: 4em;
+            height: 8em;
+            overflow: hidden;
+            position: relative;
+            float: left;
+        }
+
+        .left div, .right div {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 4em;
+            height: 8em;
+            border-radius: 8em 0 0 8em;
+            transition: all 1s;
+            transform-origin: right center;
+            transform: rotateZ(-180deg);
+        }
+
+        .right div {
+            content: "";
+            position: absolute;
+            display: block;
+            border-radius: 0 8em 8em 0;
+            transform-origin: left center;
+        }
+
+        .clock:nth-child(1) .left div, .clock:nth-child(1) .right div {
+            background-color: red;
+        }
+
+        .clock:nth-child(2) .left div, .clock:nth-child(2) .right div {
+            background-color: green;
+        }
+
+        .clock:nth-child(3) .left div, .clock:nth-child(3) .right div {
+            background-color: blue;
+        }
+
+        .clock:nth-child(4) .left div, .clock:nth-child(4) .right div {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div class="loading">
+    <div class="clock hours">
+        <div class="left">
+            <div></div>
+        </div>
+         <!-- 0-->
+        <div class="right">
+            <div></div>
+        </div>
+         <!--1-->
+        <div class="progress"><span>0</span></div><!--2-->
+    </div>
+    <div class="clock minutes">
+        <div class="left">
+            <div></div>
+        </div>
+        <div class="right">
+            <div></div>
+        </div>
+        <div class="progress"><span>0</span></div>
+    </div>
+    <div class="clock seconds">
+        <div class="left">
+            <div></div>
+        </div>
+        <div class="right">
+            <div></div>
+        </div>
+        <div class="progress"><span>0</span></div>
+    </div>
+
+    <div class="clock ringclock">
+        <div class="left">
+            <div></div>
+        </div>
+        <div class="right">
+            <div></div>
+        </div>
+        <div class="progress"><span>0</span></div>
+    </div>
+</div>
+</body>
+
+
+<script>
+
+
+    setInterval(function () {
+        var time = new Date(),
+            H = time.getHours(),
+            M = time.getMinutes(),
+            S = time.getSeconds();
+        showHours("hours", H, 12);
+        showHours("minutes", M, 30);
+        showHours("seconds", S, 30);
+        showrc(new Date().getSeconds());
+    }, 30)
+
+
+    function getByClass(oClass) {
+        return document.getElementsByClassName(oClass);
+    }
+
+
+    function showHours(oClass, num, n) {
+        var aEle = getByClass(oClass)[0].children,//取到所有的子节点
+            Rdeg = num > n ? n : num,
+            Ldeg = num > n ? num - n : 0;
+        aEle[2].innerHTML = "<span>" + num + "</span>";
+        aEle[0].children[0].style.transform = "rotateZ(" + (360 / (2 * n) * Ldeg - 180) + "deg)";//代表的是左边的半圆进行旋转
+        aEle[1].children[0].style.transform = "rotateZ(" + (360 / (2 * n) * Rdeg - 180) + "deg)";//代表的是右边的半圆旋转
+    }
+
+    function showrc(num) {
+        var aEle = getByClass("ringclock")[0].children,
+        n = 30;
+        Rdeg = Rdeg = num > n ? n : num,
+        Ldeg = num > n ? num - n : 0;
+        aEle[2].innerHTML = "<span>" + num + "</span>";
+        aEle[0].children[0].style.transform = "rotateZ(" + (360 / (2 * n) * Ldeg - 180) + "deg)";//代表的是左边的半圆进行旋转
+        aEle[1].children[0].style.transform = "rotateZ(" + (360 / (2 * n) * Rdeg - 180) + "deg)";//代表的是右边的半圆旋转
+    }
+
+</script>
+</html>

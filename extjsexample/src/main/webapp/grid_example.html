@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <link rel="stylesheet" type="text/css" href="ext/js/ext-all.css"></link>
+    <script type="text/javascript" src="ext/js/ext-base.js"></script>
+    <script type="text/javascript" src="ext/js/ext-all.js"></script>
+</head>
+<body>
+<div id="gird_example"></div>
+</body>
+<script type="text/javascript">
+    Ext.onReady(function () {
+        // Ext.Msg.alert("tips","hello ext js!");
+        var vdata = [[1, 'easyjweb', 'easyjf', 'www.easyjf.com'],
+            [2, 'jfox', 'huihoo', 'www.huihoo.org']];
+        var vstore = new Ext.data.ArrayStore({data: vdata,fields: ["id", "name", "name2", "url"]});
+        var grid_panel = new Ext.grid.GridPanel({
+            listeners:{},
+            title: "开源",
+            store: vstore,
+            columns: [{header: "名称", dataIndex: "name"}, {header: "网址", dataIndex: "url"}]
+        });
+        // grid_panel.renderTo(Ext.get("gird_example"));
+        new Ext.Viewport({layout: "fit", items: grid_panel});
+    });
+
+</script>
+</html>

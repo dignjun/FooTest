@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello extjs</title>
+</head>
+<link rel="stylesheet" type="text/css" href="ext/js/ext-all.css" />
+<script type="text/javascript" src="ext/js/ext-base.js"></script>
+<script type="text/javascript" src="ext/js/ext-all.js"></script>
+<body>
+<h3>extjs</h3>
+<p>
+    <input type="button" onclick="foo()" value="警告"/>
+    <input type="button" onclick="ff()" value="新窗口"/>
+</p>
+
+</body>
+<script>
+    function foo(){
+        alert("foo clicked");
+    };
+    Ext.onReady(function () {
+        alert("hello extjs");
+        Ext.MessageBox.confirm("hello", "extjs", function (bit) {
+            alert("窗口是否选择关闭：" + bit);
+        }, this);
+    });
+    function foo1() {
+
+    }
+    var grid = Ext.create('Ext.grid.Panel', {
+        border: false,
+        store: store,
+        columns: createColumns(4),
+        loadMask: true,
+        features: [filters],
+        dockedItems: [Ext.create('Ext.toolbar.Paging', {
+            dock: 'bottom',
+            store: store
+        })],
+        emptyText: 'No Matching Records'
+    });
+
+    var win = Ext.create('Ext.Window', {
+        title: 'Grid Filters Example',
+        height: 400,
+        width: 700,
+        layout: 'fit',
+        items: grid
+    }).show();
+
+    function ff() {
+        Ext.create('Ext.Window', {
+            title: 'Grid Filters Example',
+            height: 400,
+            width: 700,
+            layout: 'fit',
+            items: grid
+        }).show();
+    }
+</script>
+</html>
