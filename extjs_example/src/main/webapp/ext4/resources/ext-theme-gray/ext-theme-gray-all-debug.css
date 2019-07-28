@@ -34,10 +34,10 @@
  *
  * Each of these gradient names corresponds to a function named linear-gradient[name].
  * Themes can override these functions to customize the color stops that they return.
- * For example, to override the glossy-button gradient function add a function named
+ * For JsonExample, to override the glossy-button gradient function add a function named
  * "linear-gradient-glossy-button" to a file named "sass/etc/mixins/background-gradient.scss"
  * in your theme.  The function should return the result of calling the Compass linear-gradient
- * function with the desired direction and color-stop information for the gradient.  For example:
+ * function with the desired direction and color-stop information for the gradient.  For JsonExample:
  *
  *     @function linear-gradient-glossy-button($direction, $bg-color) {
  *         @return linear-gradient($direction, color_stops(
@@ -3945,7 +3945,7 @@
  */
 /**
  * @var {string}
- * The base path relative to the CSS output directory to use for theme resources.  For example
+ * The base path relative to the CSS output directory to use for theme resources.  For JsonExample
  * if the theme's images live one directory up from the generated CSS output in a directory
  * named 'foo/images/', you would need to set this variable to '../foo/' in order for the image
  * paths in the CSS output to be generated correctly. By default this is the same as the
