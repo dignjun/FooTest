@@ -629,7 +629,7 @@ li.x-menu-list-item div {
     padding: 2px 8px 2px 5px;
 }
 
-/* StatusBar word processor example styles */
+/* StatusBar word processor JsonExample styles */
 
 #word-status .x-status-text-panel .spacer {
     width: 60px;
@@ -645,7 +645,7 @@ li.x-menu-list-item div {
     background: transparent no-repeat 3px 2px;
 }
 
-/* StatusBar form validation example styles */
+/* StatusBar form validation JsonExample styles */
 
 .x-statusbar .x-status-error {
     cursor: pointer;
@@ -693,7 +693,7 @@ li.x-menu-list-item div {
     border-color: #99bbe8 #fff #fff #99bbe8;
 }
 
-/* StatusBar word processor example styles */
+/* StatusBar word processor JsonExample styles */
 
 #word-status .x-status-text {
     color: #777;
@@ -705,7 +705,7 @@ li.x-menu-list-item div {
     background-image: url(../images/saved.png);
 }
 
-/* StatusBar form validation example styles */
+/* StatusBar form validation JsonExample styles */
 
 .x-statusbar .x-status-error {
     color: #C33;
