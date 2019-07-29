@@ -3,8 +3,11 @@ package com.example;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.junit.Test;
@@ -26,6 +29,17 @@ public class JsonExample {
         System.out.println(name);
         JSONArray name1 = parse.getJSONArray("name");
         System.out.println(name1);
+
+        String js3 = "[{\"a\":\"b\",\"c\":\"d\"}]";
+        JSONArray jsonArray = JSONObject.parseArray(js3);
+        System.out.println(jsonArray);
+
+        System.out.println("----------");
+        long before = System.currentTimeMillis();
+        for(int i = 0; i < getLoopCount(); i ++) {
+            JSONObject.parseArray(getJsonString());
+        }
+        System.out.println("timeTotal: " + (System.currentTimeMillis() - before));
     }
 
     @Test // jackson translate json and object
@@ -39,6 +53,17 @@ public class JsonExample {
         String js = "{\"name\":\"alen\",\"sex\":\"femel\",\"age\":25}";
         Person person1 = objectMapper1.readValue(js, Person.class);
         System.out.println(person1);
+
+        String js2 = "[{\"a\":\"b\",\"c\":\"d\"}]";
+        JsonNode jsonNode = objectMapper.readValue(js2, JsonNode.class);
+        System.out.println(jsonNode);
+
+        System.out.println("----------");
+        long before = System.currentTimeMillis();
+        for(int i = 0; i < getLoopCount(); i ++) {
+            objectMapper.readValue(getJsonString(), JsonNode.class);
+        }
+        System.out.println("timeTotal: " + (System.currentTimeMillis() - before));
     }
 
     @Test
@@ -59,7 +84,29 @@ public class JsonExample {
         JsonElement name = jsonObject.get("name");
         System.out.println(name);
 
+        String js3 = "[{\"a\":\"b\",\"c\":\"d\"}]";
+        JsonArray jsonArray = gson.fromJson(js3, JsonArray.class);
+        System.out.println(jsonArray);
 
+        System.out.println("----------");
+        long before = System.currentTimeMillis();
+        for(int i = 0; i < getLoopCount(); i ++) {
+            JsonArray jsonArray1 = gson.fromJson(getJsonString(), JsonArray.class);
+            if(i == 500) {
+                System.out.println(jsonArray1);
+            }
+        }
+        System.out.println("timeTotal: " + (System.currentTimeMillis() - before));
+
+    }
+
+    public String getJsonString(){
+        String str = "[{\"a\":\"b\",\"c\":\"d\"},{\"1\":\"2\",\"3\":4,\"5\":true}]";
+        return str;
+    }
+
+    public int getLoopCount(){
+        return 1000;
     }
 }
 
