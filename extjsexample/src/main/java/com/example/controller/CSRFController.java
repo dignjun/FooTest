@@ -18,11 +18,11 @@ public class CSRFController {
 
     /**
      * 测试web服务是否正常，可以正常访问到jsp页面
-     * 测试地址：http://localhost:9001/example/index
+     * 测试地址：http://localhost:9001/example/index_csrf
      * @param request
      * @return
      */
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index_csrf", method = RequestMethod.GET)
     public String index(HttpServletRequest request) {
         LOGGER.info("访问主页");
         String referer = request.getHeader("Referer");
@@ -32,7 +32,7 @@ public class CSRFController {
         }
         HttpSession session = request.getSession();
         System.out.println(session);
-        return "index";
+        return "/WEB-INF/html/index.jsp";
     }
 
 }

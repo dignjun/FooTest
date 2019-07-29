@@ -16,6 +16,6 @@ public class ExampleController2 {
      */
     @RequestMapping("/world")
     public String hello() {
-        return "index";
+        return "/WEB-INF/html/index.jsp";
     }
 }
