@@ -77,7 +77,7 @@ public class WordNet {
         dict.open();
 
         //查询money这个词的第一种意思。POS后面的参数表示要选的哪种词性的含义
-        IIndexWord idxWord = dict.getIndexWord("dog", POS.NOUN); // 名词，动词，副词
+        IIndexWord idxWord = dict.getIndexWord("good", POS.ADJECTIVE); // 名词，动词，副词
         System.out.println("idxWord:" + idxWord);
         System.out.println("wordIDs:" + idxWord.getWordIDs());
         IWordID wordID = (IWordID) idxWord.getWordIDs().get(0);
@@ -85,6 +85,8 @@ public class WordNet {
         System.out.println("Id(wordID) = " + wordID);
         System.out.println("Lemma(词根) = " + word.getLemma());
         System.out.println("Gloss（释义） = " + word.getSynset().getGloss());
+        System.out.println("Synset(同义词) = " + word.getSynset());
+        System.out.println("HYPERNYM(上位词) = " + word.getSynset().getRelatedSynsets(Pointer.HYPERNYM));
 
         //第二种意思
         IWordID wordID2 = (IWordID) idxWord.getWordIDs().get(1);
@@ -95,6 +97,45 @@ public class WordNet {
         IWordID wordID3 = (IWordID) idxWord.getWordIDs().get(2);
         IWord word3 = dict.getWord(wordID3);
         System.out.println("Gloss（释义）3 = " + word3.getSynset().getGloss());
+
+        System.out.println("-------IDictionary---------");
+        System.out.println(dict.getExceptionEntry("dog", POS.NOUN));
+        IIndexWord dog = dict.getIndexWord("dog", POS.NOUN);
+        System.out.println(dog);
+
+        System.out.println("-------IIndexWord----------");
+        System.out.println(dog.getPointers());
+        System.out.println(dog.getLemma());
+        List<IWordID> wordIDs = dog.getWordIDs();
+        System.out.println(wordIDs);
+
+        System.out.println("--------IWordID--------");
+        for (IWordID iw: wordIDs) {//词根：同义词ID：词类计数：词类型
+            System.out.println(iw.getLemma() + " <> " + iw.getSynsetID() + "<>" + iw.getWordNumber() + "<>" + iw.getPOS());
+        }
+
+        System.out.println("-------IWord---------");
+        IWord word1 = dict.getWord(wordIDs.get(0));//获取词类1/7
+        System.out.println(word1);
+        System.out.println(word1.getLemma());//词根
+        ISynset synset = word1.getSynset();//同义词集
+        System.out.println(synset);
+        System.out.println(word1.getLexicalID());//词汇ID：0
+        System.out.println(word1.getRelatedWords());//关系词：[]
+        System.out.println(word1.getRelatedWords(Pointer.HYPERNYM));//上位词：[]
+        System.out.println(word1.getSenseKey());//语义key：dog%1:05:00::
+
+        System.out.println("--------ISynset---------");
+        System.out.println(synset.getWords());//同义词
+        System.out.println(synset.getWord(1));//从1开始计
+        System.out.println(synset.getGloss());//同义词简介
+        System.out.println(synset.getRelatedSynsets());//所有的关系同义词（上下位，成员，部分）
+        System.out.println(synset.getRelatedSynsets(Pointer.HYPERNYM));//getRelatedMap()中key为上位词的同义词集
+        System.out.println(synset.getOffset());//词库中的偏移量
+        System.out.println(synset.getRelatedMap());//获取同义词的关系集合，key就是Pointer表示的枚举
+        System.out.println(synset.getType());//词类型1，表示名词
+        System.out.println(synset.getPOS());//词类型noun，表示名词
+        System.out.println(synset.getID());//获取ISynsetID
     }
 
 
@@ -240,6 +281,7 @@ public class WordNet {
         System.out.println("word: " + word); // word = word.getID()
         ISynset synset = word.getSynset(); // 获取同义词
         System.out.println("synset: "+ synset);
+
 
         // 获取上位词
         List<ISynsetID> hypernyms = synset.getRelatedSynsets(Pointer.HYPERNYM); // 同义词获取上位词
