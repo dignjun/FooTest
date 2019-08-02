@@ -36,7 +36,7 @@ Ext.onReady(function() {
 
         parseCodes = {
             g: 1,
-            c: "if (/(上午)/i.test(results[{0}])) {\n"
+            c: "if (/(上午)/i.wordclass(results[{0}])) {\n"
                 + "if (!h || h == 12) { h = 0; }\n"
                 + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
             s: "(上午|下午)",

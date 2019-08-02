@@ -909,7 +909,7 @@ Ext.define('Ext.data.amf.Encoder', {
      * @return {Boolean} true if it's an XML document, false otherwise
      */
     isXmlDocument: function(item) {
-        // We can't test if Document is defined since IE just throws an exception. Instead rely on the DOMParser object
+        // We can't wordclass if Document is defined since IE just throws an exception. Instead rely on the DOMParser object
         if (window.DOMParser) {
             if (Ext.isDefined(item.doctype)) {
                 return true;
@@ -3136,7 +3136,7 @@ Ext.define('Ext.data.amf.XmlEncoder', {
      * @return {Boolean} true if it's an XML document, false otherwise
      */
     isXmlDocument: function(item) {
-        // We can't test if Document is defined since IE just throws an exception. Instead rely on the DOMParser object
+        // We can't wordclass if Document is defined since IE just throws an exception. Instead rely on the DOMParser object
         if (window.DOMParser) {
             if (Ext.isDefined(item.doctype)) {
                 return true;

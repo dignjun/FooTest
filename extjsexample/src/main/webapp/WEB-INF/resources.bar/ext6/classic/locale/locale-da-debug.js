@@ -226,7 +226,7 @@ Ext.define("Ext.locale.da.form.field.HtmlEditor", {
             },
             createlink: {
                 title: 'Hyperlink',
-                text: 'Lav det markerede test til et hyperlink.',
+                text: 'Lav det markerede wordclass til et hyperlink.',
                 cls: Ext.baseCSSPrefix + 'html-editor-tip'
             },
             sourceedit: {

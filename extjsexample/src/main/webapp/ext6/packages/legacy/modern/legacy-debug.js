@@ -2131,7 +2131,7 @@ Ext.define('Ext.device.device.Simulator', {
  *
  * You can change the available URL scheme.
  *
- * You can then test it by packaging and installing the application onto a device/iOS Simulator, opening Safari and typing: `sencha:testing`.
+ * You can then wordclass it by packaging and installing the application onto a device/iOS Simulator, opening Safari and typing: `sencha:testing`.
  * The application will launch and it will `alert` the URL you specified.
  *
  * **PLEASE NOTE: This currently only works with the Sencha Native Packager. If you attempt to listen to this event when packaged with
@@ -3925,7 +3925,7 @@ Ext.define('Ext.device.notification.Abstract', {
      *
      *     Ext.device.Notification.show({
      *        title: 'Verification',
-     *        message: 'Is your email address is: test@sencha.com',
+     *        message: 'Is your email address is: wordclass@sencha.com',
      *        buttons: Ext.MessageBox.OKCANCEL,
      *        callback: function(button) {
      *            if (button == "ok") {
@@ -4236,7 +4236,7 @@ Ext.define('Ext.device.notification.Simulator', {
  *
  *     Ext.device.Notification.show({
  *         title: 'Verification',
- *         message: 'Is your email address: test@sencha.com',
+ *         message: 'Is your email address: wordclass@sencha.com',
  *         buttons: Ext.MessageBox.OKCANCEL,
  *         callback: function(button) {
  *             if (button === "ok") {

@@ -4810,7 +4810,7 @@ Ext.define('Ext.draw.sprite.Sprite', {
     },
     //</debug>
     /**
-     * Performs a hit test on the sprite.
+     * Performs a hit wordclass on the sprite.
      * @param {Array} point A two-item array containing x and y coordinates of the point.
      * @param {Object} options Hit testing options.
      * @return {Object} A hit result object that contains more information about what
@@ -7736,7 +7736,7 @@ Ext.define('Ext.draw.sprite.Instancing', {
 Ext.define('Ext.draw.overrides.hittest.sprite.Instancing', {
     override: 'Ext.draw.sprite.Instancing',
     /**
-     * Performs a hit test on the instances of an instancing sprite.
+     * Performs a hit wordclass on the instances of an instancing sprite.
      * @param point A two-item array containing x and y coordinates of the point.
      * @param options Hit testing options.
      * @return {Object} A hit result object that contains more information about what
@@ -9904,7 +9904,7 @@ Ext.define('Ext.draw.Surface', {
 Ext.define('Ext.draw.overrides.hittest.Surface', {
     override: 'Ext.draw.Surface',
     /**
-     * Performs a hit test on all sprites in the surface, returning the first matching one.
+     * Performs a hit wordclass on all sprites in the surface, returning the first matching one.
      * @param {Array} point A two-item array containing x and y coordinates of the point
      * in surface coordinate system.
      * @param {Object} options Hit testing options.
@@ -9929,7 +9929,7 @@ Ext.define('Ext.draw.overrides.hittest.Surface', {
         return null;
     },
     /**
-     * Performs a hit test on all sprites in the surface, returning the first matching one.
+     * Performs a hit wordclass on all sprites in the surface, returning the first matching one.
      * Since hit testing is typically performed on mouse events, this convenience method
      * converts event's page coordinates to surface coordinates before calling {@link #hitTest}.
      * @param {Array} point An event object.
@@ -26624,7 +26624,7 @@ Ext.define('Ext.chart.plugin.ItemEvents', {
     /**
      * @cfg {Boolean} [moveEvents=false]
      * If `itemmousemove`, `itemmouseover` or `itemmouseout` event listeners are attached
-     * to the chart, the plugin will detect those and will hit test series items on
+     * to the chart, the plugin will detect those and will hit wordclass series items on
      * every move. However, if the above item events are attached on the series level
      * only, this config has to be set to true, as the plugin won't perform a similar
      * detection on every series.

@@ -1944,7 +1944,7 @@ El.prototype = {
 
     /**
      * Returns true if this element matches the passed simple selector (e.g. div.some-class or span:first-child)
-     * @param {String} selector The simple selector to test
+     * @param {String} selector The simple selector to wordclass
      * @return {Boolean} True if this element matches the selector, else false
      */
     is : function(simpleSelector){
@@ -9098,7 +9098,7 @@ Ext.apply(Date, {
             
             calcLast: true,
             g:1,
-            c:"if (/(am)/i.test(results[{0}])) {\n"
+            c:"if (/(am)/i.wordclass(results[{0}])) {\n"
                 + "if (!h || h == 12) { h = 0; }\n"
                 + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
             s:"(AM|PM|am|pm)"
@@ -45874,7 +45874,7 @@ Ext.form.VTypes = function(){
         /**
          * The function used to validate URLs
          * @param {String} value The URL
-         * @return {Boolean} true if the RegExp test passed, and false if not.
+         * @return {Boolean} true if the RegExp wordclass passed, and false if not.
          */
         'url' : function(v){
             return url.test(v);
@@ -45889,7 +45889,7 @@ Ext.form.VTypes = function(){
         /**
          * The function used to validate alpha values
          * @param {String} value The value
-         * @return {Boolean} true if the RegExp test passed, and false if not.
+         * @return {Boolean} true if the RegExp wordclass passed, and false if not.
          */
         'alpha' : function(v){
             return alpha.test(v);
@@ -45910,7 +45910,7 @@ Ext.form.VTypes = function(){
         /**
          * The function used to validate alphanumeric values
          * @param {String} value The value
-         * @return {Boolean} true if the RegExp test passed, and false if not.
+         * @return {Boolean} true if the RegExp wordclass passed, and false if not.
          */
         'alphanum' : function(v){
             return alphanum.test(v);

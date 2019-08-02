@@ -622,7 +622,7 @@ function(el){
          * <li>an empty array</li>
          * <li>a zero length string (Unless the <tt>allowBlank</tt> parameter is <tt>true</tt>)</li>
          * </ul></div>
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @param {Boolean} allowBlank (optional) true to allow empty strings (defaults to false)
          * @return {Boolean}
          */
@@ -632,7 +632,7 @@ function(el){
 
         /**
          * Returns true if the passed value is a JavaScript array, otherwise false.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isArray : function(v){
@@ -641,7 +641,7 @@ function(el){
 
         /**
          * Returns true if the passed object is a JavaScript date object, otherwise false.
-         * @param {Object} object The object to test
+         * @param {Object} object The object to wordclass
          * @return {Boolean}
          */
         isDate : function(v){
@@ -650,7 +650,7 @@ function(el){
 
         /**
          * Returns true if the passed value is a JavaScript Object, otherwise false.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isObject : function(v){
@@ -659,7 +659,7 @@ function(el){
 
         /**
          * Returns true if the passed value is a JavaScript 'primitive', a string, number or boolean.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isPrimitive : function(v){
@@ -668,7 +668,7 @@ function(el){
 
         /**
          * Returns true if the passed value is a JavaScript Function, otherwise false.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isFunction : function(v){
@@ -677,7 +677,7 @@ function(el){
 
         /**
          * Returns true if the passed value is a number. Returns false for non-finite numbers.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isNumber : function(v){
@@ -686,7 +686,7 @@ function(el){
 
         /**
          * Returns true if the passed value is a string.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isString : function(v){
@@ -695,7 +695,7 @@ function(el){
 
         /**
          * Returns true if the passed value is a boolean.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isBoolean : function(v){
@@ -704,7 +704,7 @@ function(el){
 
         /**
          * Returns true if the passed value is an HTMLElement
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isElement : function(v) {
@@ -713,7 +713,7 @@ function(el){
 
         /**
          * Returns true if the passed value is not undefined.
-         * @param {Mixed} value The value to test
+         * @param {Mixed} value The value to wordclass
          * @return {Boolean}
          */
         isDefined : function(v){

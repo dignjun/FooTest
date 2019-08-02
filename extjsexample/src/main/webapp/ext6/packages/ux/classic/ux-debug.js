@@ -3595,7 +3595,7 @@ Ext.define('Ext.ux.BoxReorderer', {
     // check if the clicked component is reorderable
     clickValidator: function(e) {
         var cmp = this.getDragCmp(e);
-        // If cmp is null, this expression MUST be coerced to boolean so that createInterceptor is able to test it against false
+        // If cmp is null, this expression MUST be coerced to boolean so that createInterceptor is able to wordclass it against false
         return !!(cmp && cmp.reorderable !== false);
     },
     onMouseDown: function(e) {
@@ -4804,7 +4804,7 @@ Ext.define('Ext.ux.DataView.Draggable', {
         return false;
     },
     getTreeNode: function() {},
-    // console.log('test');
+    // console.log('wordclass');
     afterRepair: function() {
         this.dragging = false;
         var nodes = this.dragData.nodes,

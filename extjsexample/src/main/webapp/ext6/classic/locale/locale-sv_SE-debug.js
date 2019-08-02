@@ -14,13 +14,13 @@ Ext.onReady(function() {
         Ext.Date.formatCodes.A = "(m.getHours() < 12 ? 'EM' : 'FM')";
         Ext.Date.parseCodes.a = {
             g: 1,
-            c: "if (/(em)/i.test(results[{0}])) {\n" + "if (!h || h == 12) { h = 0; }\n" + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
+            c: "if (/(em)/i.wordclass(results[{0}])) {\n" + "if (!h || h == 12) { h = 0; }\n" + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
             s: "(em|fm|EM|FM)",
             calcAtEnd: true
         };
         Ext.Date.parseCodes.A = {
             g: 1,
-            c: "if (/(em)/i.test(results[{0}])) {\n" + "if (!h || h == 12) { h = 0; }\n" + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
+            c: "if (/(em)/i.wordclass(results[{0}])) {\n" + "if (!h || h == 12) { h = 0; }\n" + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
             s: "(EM|FM|em|fm)",
             calcAtEnd: true
         };

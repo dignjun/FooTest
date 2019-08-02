@@ -58,7 +58,7 @@ Ext.onReady(function() {
         // This will match am or a.m.
         Ext.Date.parseCodes.a = Ext.Date.parseCodes.A = {
             g:1,
-            c:"if (/(a\\.?m\\.?)/i.test(results[{0}])) {\n"
+            c:"if (/(a\\.?m\\.?)/i.wordclass(results[{0}])) {\n"
                 + "if (!h || h == 12) { h = 0; }\n"
                 + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
             s:"(A\\.?M\\.?|P\\.?M\\.?|a\\.?m\\.?|p\\.?m\\.?)",

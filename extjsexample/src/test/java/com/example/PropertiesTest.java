@@ -18,13 +18,13 @@ public class PropertiesTest {
         System.out.println(aa);
 
         // 任意路径
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("D:\\Code-Example\\extjsexample\\src\\test\\resources\\test.properties"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("D:\\Code-Example\\extjsexample\\src\\wordclass\\resources\\wordclass.properties"));
         pp.load(bufferedReader);
         String aaa = pp.getProperty("aaa");
         System.out.println(aaa);
 
         // 使用Resbundle
-        ResourceBundle bundle = ResourceBundle.getBundle("test");
+        ResourceBundle bundle = ResourceBundle.getBundle("wordclass");
         String aaa1 = bundle.getString("aaa");
         System.out.println(aaa1);
     }

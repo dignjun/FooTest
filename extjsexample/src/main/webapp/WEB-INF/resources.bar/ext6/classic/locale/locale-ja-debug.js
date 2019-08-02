@@ -47,7 +47,7 @@ Ext.onReady(function() {
         
         parseCodes = {
             g: 1,
-            c: "if (/(午前)/i.test(results[{0}])) {\n"
+            c: "if (/(午前)/i.wordclass(results[{0}])) {\n"
                 + "if (!h || h == 12) { h = 0; }\n"
                 + "} else { if (!h || h < 12) { h = (h || 0) + 12; }}",
             s: "(午前|午後)",
