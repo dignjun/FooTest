@@ -35,6 +35,9 @@ var formpanel = Ext.create('Ext.form.FormPanel', {
 })
 Ext.onReady(function () {
 
+    /**
+     * hello_world之window窗口内嵌一个表单
+     */
     Ext.create('Ext.window.Window', {
         height: 125,
         width: 200,
@@ -44,5 +47,14 @@ Ext.onReady(function () {
         layout: 'fit',
         items: formpanel    // window里面放着的组件是一个formpanel
     }).show()
+
+
+    /**
+     *
+     */
+    var myDiv = Ext.get('div1');
+    myDiv.setHeight(200);
+    //
+    myDiv.setSize(350, 400, {duraction: 1 , easing: 'bounceOut'});
 
 })
