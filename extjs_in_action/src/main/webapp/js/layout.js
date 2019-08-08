@@ -14,7 +14,7 @@ Ext.onReady(function () {
      *
      */
     var childPanel1 = {
-        frame: true,
+        frame: true, // 可以设置panel的圆角样式，同时也有内部文字背景和padding的效果
         height: 50,
         html: 'my first child panel',
         title: 'first child are fun'
@@ -27,7 +27,7 @@ Ext.onReady(function () {
     var myWin = Ext.create('Ext.Window', {
         height: 300,
         width: 300,
-        title: 'a window with a container layout',
+        title: 'a window with a container(auto) layout',
         autoScroll: true, // 设置可滚屏,让浏览器在必要的时候才显示滚动条
         items: [childPanel1, childPanel2], // 添加子面板,这是一个数组.注意:任何容器的items属性都可以是一个用来列举多个子项的数组示例,或者是一个单独的子项的对象引用.
         tbar: [{
@@ -60,6 +60,7 @@ Ext.onReady(function () {
         height: 300,
         width: 300,
         layout: 'anchor', // 设置布局
+        title: 'a window with a anchor layout',
         border: false,
         anchorSize: 400,
         items: [{
@@ -92,6 +93,7 @@ Ext.onReady(function () {
      * 注意:absolute布局可能存在组件元素重叠的风险.
      */
     var  myWin = Ext.create('Ext.Window',{
+        title:'a window with a absolute layout',
         height: 300,
         width: 300,
         layout: 'absolute',
@@ -123,6 +125,7 @@ Ext.onReady(function () {
     var myWin = Ext.create('Ext.Window', {
         height: 300,
         width: 300,
+        title: 'a window with a fit layout',
         layout: 'fit',
         border: false,
         items: [{
@@ -190,7 +193,7 @@ Ext.onReady(function () {
 
 
     /**
-     * 6.Card:确保容器的子项与容器的尺寸相一致.和fit布局不同,card布局可以控制多个子项.
+     * 6.Card:确保容器的子项与容器的尺寸相一致.和fit布局不同,card布局可以控制(可以进行左右移动，显示所有“fit”布局的子项)多个子项.
      */
     var handleNav = function (btn) {
         var activeItem = myWin.layout.activeItem,
