@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name":"accounting",
+      "active":null,
+      "dateActive":"12/01/2011",
+      "dateInactive":null,
+      "description":null,
+      "director":null,
+      "numEmployees":"45"
+    }
+  ],
+  "meta": {
+    "success": true,
+    "msg": ""
+  }
+}
