@@ -32,4 +32,22 @@ public class GridController {
         String result = "{\"data\":[{\"id\":\"1\",\"state\":\"s1\"},{\"id\":\"2\",\"state\":\"s2\"},{\"id\":\"3\",\"state\":\"s3\"}],success:true}";
         return result;
     }
+    @RequestMapping("tree/read")
+    @ResponseBody
+    public String treeRead() {
+        String result = "[{\n" +
+                "\t\"id\": \"1\",\n" +
+                "\t\"text\": \"sbs\",\n" +
+                "\t\"leaf\": true\n" +
+                "}, {\n" +
+                "\t\"id\": \"2\",\n" +
+                "\t\"text\": \"sbs2\",\n" +
+                "\t\"leaf\": true\n" +
+                "}, {\n" +
+                "\t\"id\": \"3\",\n" +
+                "\t\"text\": \"sbs3\",\n" +
+                "\t\"leaf\": true\n" +
+                "}]";
+        return result;
+    }
 }
