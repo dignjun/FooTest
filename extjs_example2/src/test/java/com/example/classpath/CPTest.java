@@ -133,5 +133,23 @@ public class CPTest {
          * class.getClassLoader().getResource(): 则需要考虑到类加载器, 自定义的类通过app加载器加载, /开头则是表示根目录,资源位于app加载器的父亲父亲的加载classpath目录/lib下,
          * 如果使用相对路径,则是表示资源位于根目录(项目) -- 基准是文件的最外层包
          */
+
+        System.out.println("--");
+
+        /**
+         * 测试这个文件在其他的文件夹,也就是顶层包目录com之外
+         *
+         * 通过配置-cp或者-classpath读取外部的配置文件
+         *
+         */
+        URL resource2 = CPTest.class.getResource("/cp2.txt");
+        System.out.println(resource2.getFile());
+
+        System.out.println("--");
+
+        URL resource3 = CPTest.class.getClassLoader().getResource("cp2.txt");
+        System.out.println(resource3.getFile());
+
+
     }
 }
