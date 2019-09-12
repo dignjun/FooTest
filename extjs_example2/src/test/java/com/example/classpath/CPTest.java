@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * >>>>>>>>>>>>>>>>>>>
  *
- * classpath是JVM用到的一个环境变量,它用来指示JVM如何搜索到class.
+ * classpath是JVM用到的一个环境变量,它用来指示JVM如何搜索到class.后面只能拼接"." "jar" "zip" "目录"
  *
  * 因为Java是编译型语言,源码文件是.java, 而编译后的.class文件才是真正可以被JVM执行的字节码.因此,JVM需要知道,如果加载一个abc.xyz.Hello的类,应该去哪里搜索对应的Hello.class文件.
  *
@@ -112,6 +112,9 @@ public class CPTest {
          * 所以我们使用getResource(), getResourceAsStream()等api是可以获取到配置在resources目录下的配置的.properties文件的
          *
          */
+        System.out.println(CPTest.class.getResource("/"));
+        System.out.println(CPTest.class.getClassLoader().getResource(""));
+
         URL resource = CPTest.class.getResource("/com/cp.text");
 
         System.out.println(resource.getFile()); // -_- /D:/github/FooTest/extjs_example2/target/test-classes/com/cp.text
@@ -140,6 +143,16 @@ public class CPTest {
          * 测试这个文件在其他的文件夹,也就是顶层包目录com之外
          *
          * 通过配置-cp或者-classpath读取外部的配置文件
+         *
+         * 在idea中测试参数不起作用，然后通过命令行测试这个流程
+         *
+         * 运行命令：java -classpath D:\test\test3\;D:\test com.example.Test
+         *
+         * 说明：类位于test3目录下，也就是第一个路径所指示的位置，特别说明一下，使用“.”并不能指定为当前环境
+         *
+         * 然后com的同级目录建一个资源ab.txt，然后在类的根目录com目录的上级目录test下新建一个资源cd.txt
+         *
+         * 然后代码中通过Test.class.getResource("/ab.txt")或者Test.class.getResource("/cd.txt")都可以获取到资源文件了
          *
          */
         URL resource2 = CPTest.class.getResource("/cp2.txt");
