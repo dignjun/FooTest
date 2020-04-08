@@ -80,4 +80,9 @@ public class PropertiesTest {
         String s1 = new String(bundle.getString("key").getBytes("ISO-8859-1"), "gbk");
         System.out.println(s1);
     }
+    @Test
+    public void test4() {
+        int i = 16;
+        System.out.println(i <<= 1);
+    }
 }

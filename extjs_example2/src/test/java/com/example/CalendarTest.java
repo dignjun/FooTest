@@ -14,7 +14,7 @@ public class CalendarTest {
     @Before
     public void before() {
         calendar = Calendar.getInstance();
-        calendar.set(2019,9,13);
+//        calendar.set(2019,9,13);
     }
     @Test
     public void test1() {
@@ -51,5 +51,17 @@ public class CalendarTest {
         calendar.add(Calendar.DAY_OF_WEEK, 6);
         System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
         System.out.println(calendar.get(Calendar.DAY_OF_WEEK));
+    }
+
+    @Test
+    public void test5(){
+        System.out.println(calendar.getTime());
+        calendar.set(Calendar.DAY_OF_WEEK, 7);
+        System.out.println(calendar.getTime());
+
+    }
+
+    @Test
+    public void test6(){
     }
 }

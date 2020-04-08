@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringTest {
 
@@ -97,5 +99,16 @@ public class StringTest {
             }
         }
         return tmp;
+    }
+
+    @Test
+    public void test22() {
+        String s = "abc *afsadfasdfbb";
+        String[] split = s.split("\\*");
+        System.out.println(split[0] +":"+split[1]);
+        String s2 = "abc *afsadfasdfbb";
+        Pattern p = Pattern.compile("\\*" + "(?=\\(|;|$)");
+        Matcher matcher = p.matcher(s2);
+        System.out.println(matcher.find());
     }
 }
