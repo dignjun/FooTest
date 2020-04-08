@@ -1,0 +1,27 @@
+/*unimgr*****************************************************/
+
+.tplclass{
+	float:left;
+	margin:45px;
+	text-align:center;
+}
+.tploverclass{
+	background-color: rgba(100, 100, 100, .50);
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	/*border-top: 1px solid rgba(0, 0, 0, .50);
+	*/
+}
+.tplselect{
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	background-color: rgba(100, 100, 100, .50);
+}
+
+.weixin-account-detail {
+	/* -webkit-border-radius: 64px; */
+	/* -moz-border-radius: 64px; */
+	/* -ms-border-radius: 64px; */
+	/* border-radius: 64px; */
+	border: 1px solid #eee;
+}
