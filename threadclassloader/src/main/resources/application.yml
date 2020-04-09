@@ -1,0 +1,9 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /ext
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/index/
+      suffix: .html

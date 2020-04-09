@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.*;
 
+/**
+ * 线程的经典实用场景之一
+ */
 public class ThreadLocalNormalUsage {
 
     // 定义一个可变线程池
