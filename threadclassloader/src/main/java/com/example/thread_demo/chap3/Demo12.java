@@ -4,6 +4,12 @@ package com.example.thread_demo.chap3;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 一个生产者和多个消费者
+ *
+ * 注意：1.此时需要使用notifyAll，因为就一个生产者，多个消费者执行概率大，可以出现假死的状态
+ *      2.另外消费者多，可能消费同一个值，所以在等待的判断使用while，即使被唤醒也要再次判断集合是否有值，否则会出现异常
+ */
 public class Demo12 {
     public static void main(String[] args) {
         Demo12Service service = new Demo12Service();
